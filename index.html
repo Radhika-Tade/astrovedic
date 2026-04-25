@@ -3,34 +3,33 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AstroVedic Mind · Nayan (Revan)</title>
+<title>AstroVedic Mind · Nayan (Revan) · Modern Vedic Astrology</title>
+<meta name="description" content="Personalized Vedic astrology readings by Nayan (Revan). Career, marriage, love, Rajyog readings in Marathi, Hindi and English. Starting at 99 rupees."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-/* ════ RESET ════ */
 *{margin:0;padding:0;box-sizing:border-box}
 img{display:block;max-width:100%}
 button{font-family:inherit;cursor:pointer}
-
-/* ════ TOKENS — DARK (default) ════ */
+a{text-decoration:none}
 :root{
-  --gold:#C9A84C;--gold-light:#E8D08A;--gold-dark:#8B6914;
-  --deep:#0A0612;--mid:#12091E;--surface:#1A102A;
-  --text:#F5F0E8;--muted:#A89880;
-  --nav-bg:rgba(10,6,18,0.96);
+  --gold:#C9A84C;--gold-light:#E8D08A;--gold-dark:#8B6914;--gold-glow:rgba(201,168,76,0.25);
+  --deep:#080410;--mid:#0F0820;--surface:#160D26;--surface2:#1C1030;
+  --text:#F5F0E8;--muted:#A89880;--muted2:#7A6A58;
+  --nav-bg:rgba(8,4,16,0.95);
   --drawer-bg:rgba(8,4,14,0.99);
   --star-color:#ffffff;
   --featured-bg:linear-gradient(135deg,#1A102A,#140A20);
-  --card-border:rgba(201,168,76,0.15);
-  --card-border-hover:rgba(201,168,76,0.45);
+  --card-border:rgba(201,168,76,0.12);
+  --card-border-hover:rgba(201,168,76,0.5);
   --t:0.35s;--ease:cubic-bezier(0.4,0,0.2,1);
+  --radius:4px;
 }
-/* ════ TOKENS — LIGHT ════ */
 html.light{
-  --gold:#8B6914;--gold-light:#C9A84C;--gold-dark:#5C4409;
-  --deep:#FAF7F2;--mid:#F0EBE0;--surface:#E8E0D0;
-  --text:#1A0F28;--muted:#5C4A2A;
+  --gold:#8B6914;--gold-light:#C9A84C;--gold-dark:#5C4409;--gold-glow:rgba(139,105,20,0.15);
+  --deep:#FAF7F2;--mid:#F0EBE0;--surface:#E8E0D0;--surface2:#EDE5D5;
+  --text:#1A0F28;--muted:#5C4A2A;--muted2:#8A7050;
   --nav-bg:rgba(250,247,242,0.96);
   --drawer-bg:rgba(250,247,242,0.99);
   --star-color:#C9A84C;
@@ -38,34 +37,28 @@ html.light{
   --card-border:rgba(139,105,20,0.18);
   --card-border-hover:rgba(139,105,20,0.5);
 }
-
-/* ════ BASE ════ */
 html{scroll-behavior:smooth}
 body{background:var(--deep);color:var(--text);font-family:'Jost',sans-serif;overflow-x:hidden;transition:background-color var(--t) var(--ease),color var(--t) var(--ease)}
 body.lang-hi,body.lang-mr{font-family:'Noto Sans Devanagari','Jost',sans-serif;font-size:0.96em;line-height:1.65}
-body.lang-hi .hero-sub,body.lang-mr .hero-sub{font-family:'Noto Sans Devanagari','Cormorant Garamond',serif}
 
-/* ════ STARFIELD ════ */
+.announce-bar{background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark));color:var(--deep);text-align:center;padding:0.55rem 3rem;font-size:0.72rem;letter-spacing:0.12em;font-weight:500;text-transform:uppercase;position:relative;z-index:300;display:flex;align-items:center;justify-content:center;gap:0.6rem;flex-wrap:wrap}
+.announce-bar a{color:var(--deep);font-weight:700;border-bottom:1px solid rgba(0,0,0,0.3)}
+.announce-close{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--deep);cursor:pointer;font-size:1rem;opacity:0.6;padding:0.2rem}
+.announce-close:hover{opacity:1}
+
 .starfield{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .star{position:absolute;background:var(--star-color);border-radius:50%;animation:twinkle var(--d,3s) var(--delay,0s) infinite alternate;transition:background-color var(--t) var(--ease)}
-@keyframes twinkle{0%{opacity:.1;transform:scale(1)}100%{opacity:.8;transform:scale(1.5)}}
+@keyframes twinkle{0%{opacity:.05;transform:scale(1)}100%{opacity:.7;transform:scale(1.6)}}
 
-/* ════ NAV ════ */
-nav{
-  position:sticky;top:0;z-index:200;
-  background:var(--nav-bg);
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(201,168,76,0.18);
-  padding:0 1.5rem;height:68px;
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  transition:background var(--t) var(--ease);
-}
-.nav-logo{flex-shrink:0;text-decoration:none}
-.nav-logo-img{height:100px;width:auto;filter:drop-shadow(0 0 6px rgba(201,168,76,0.3))}
-.nav-logo-text{display:none;font-family:'Cinzel Decorative',serif;font-size:0.85rem;color:var(--gold)}
+nav{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,0.15);padding:0 1.5rem;height:68px;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:background var(--t) var(--ease),box-shadow var(--t) var(--ease)}
+nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,0.4)}
+.nav-logo{flex-shrink:0}
+.nav-logo-img{height:100px;width:auto;filter:drop-shadow(0 0 8px rgba(201,168,76,0.35))}
 .nav-links{display:flex;gap:1.8rem}
-.nav-links a{color:var(--muted);font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;transition:color 0.25s;white-space:nowrap}
+.nav-links a{color:var(--muted);font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;transition:color 0.25s;white-space:nowrap;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.25s}
 .nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{transform:scaleX(1)}
 .nav-right{display:flex;align-items:center;gap:0.5rem;flex-shrink:0}
 .lang-group{display:flex;gap:0.35rem}
 .lang-btn{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:0.3rem 0.6rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:3px;transition:all 0.25s}
@@ -75,25 +68,15 @@ nav{
 .theme-btn:hover{background:var(--gold-light);color:var(--deep)}
 .icon-sun{display:block}.icon-moon{display:none}
 html.light .icon-sun{display:none}html.light .icon-moon{display:block}
-.nav-book{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:0.45rem 1.1rem;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border-radius:2px;transition:all 0.25s;white-space:nowrap}
-.nav-book:hover{background:var(--gold);color:var(--deep)}
-
-/* Hamburger */
+.nav-book{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--deep);padding:0.45rem 1.1rem;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;border:none;border-radius:2px;transition:all 0.25s;white-space:nowrap;font-weight:500}
+.nav-book:hover{transform:translateY(-1px);box-shadow:0 4px 16px var(--gold-glow)}
 .hamburger{display:none;background:none;border:1px solid var(--gold);color:var(--gold);width:38px;height:38px;border-radius:3px;flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:all 0.25s;flex-shrink:0}
 .hamburger span{display:block;width:18px;height:1.5px;background:var(--gold);transition:all 0.3s;border-radius:2px}
 .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 .hamburger:hover{background:rgba(201,168,76,0.1)}
-
-/* Mobile drawer */
-.mobile-drawer{
-  display:none;position:fixed;top:68px;left:0;right:0;bottom:0;
-  background:var(--drawer-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  z-index:190;flex-direction:column;padding:2rem 1.5rem;
-  border-top:1px solid rgba(201,168,76,0.12);overflow-y:auto;
-  transition:background var(--t) var(--ease);
-}
+.mobile-drawer{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--drawer-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:190;flex-direction:column;padding:2rem 1.5rem;border-top:1px solid rgba(201,168,76,0.12);overflow-y:auto}
 .mobile-drawer.open{display:flex}
 .drawer-links{display:flex;flex-direction:column;border-bottom:1px solid rgba(201,168,76,0.12);padding-bottom:1.5rem;margin-bottom:1.5rem}
 .drawer-links a{color:var(--text);font-size:1.1rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;padding:0.9rem 0;border-bottom:1px solid rgba(201,168,76,0.08);transition:color 0.2s,padding-left 0.2s}
@@ -103,334 +86,371 @@ html.light .icon-sun{display:none}html.light .icon-moon{display:block}
 .drawer-book{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--deep);padding:1rem;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;border:none;border-radius:2px;font-weight:500;width:100%;transition:opacity 0.25s}
 .drawer-book:hover{opacity:0.88}
 
-/* ════ HERO ════ */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:5rem 1.5rem 3rem;overflow:hidden;z-index:1}
-.mandala{position:absolute;width:min(600px,90vw);height:min(600px,90vw);opacity:0.06;top:50%;left:50%;transform:translate(-50%,-50%);animation:rotateSlow 60s linear infinite}
-@keyframes rotateSlow{to{transform:translate(-50%,-50%) rotate(360deg)}}
-.hero-content{position:relative;z-index:2;max-width:680px;width:100%}
-.hero-logo-wrap{margin-bottom:1.8rem;display:flex;justify-content:center}
-.hero-logo{width:min(400px,80vw);height:auto;filter:drop-shadow(0 4px 24px rgba(201,168,76,0.2));animation:fadeUp 1.2s ease both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.hero-badge{display:inline-block;border:1px solid rgba(201,168,76,0.4);color:var(--gold);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;padding:0.4rem 1rem;margin-bottom:1.2rem;animation:fadeUp 1.2s 0.2s ease both}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.05rem,3vw,1.3rem);color:var(--muted);font-style:italic;margin-bottom:1.8rem;line-height:1.65;animation:fadeUp 1.2s 0.4s ease both}
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:5rem 1.5rem 4rem;overflow:hidden;z-index:1}
+.hero-wheel{position:absolute;width:min(700px,100vw);height:min(700px,100vw);top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.07;pointer-events:none}
+.wheel-outer{animation:rotateSlow 80s linear infinite;transform-origin:250px 250px}
+.wheel-mid{animation:rotateSlow 50s linear infinite reverse;transform-origin:250px 250px}
+.wheel-inner{animation:rotateSlow 30s linear infinite;transform-origin:250px 250px}
+@keyframes rotateSlow{to{transform:rotate(360deg)}}
+.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(500px,80vw);height:min(500px,80vw);background:radial-gradient(ellipse,rgba(201,168,76,0.08) 0%,transparent 70%);pointer-events:none;animation:pulseGlow 4s ease-in-out infinite alternate}
+@keyframes pulseGlow{from{opacity:0.5}to{opacity:1}}
+.hero-content{position:relative;z-index:2;max-width:700px;width:100%}
+.hero-logo-wrap{margin-bottom:1.5rem;display:flex;justify-content:center}
+.hero-logo{width:min(380px,78vw);height:auto;filter:drop-shadow(0 4px 32px rgba(201,168,76,0.3));animation:fadeUp 1.2s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(201,168,76,0.35);color:var(--gold);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;padding:0.45rem 1.2rem;margin-bottom:1rem;border-radius:20px;background:rgba(201,168,76,0.06);animation:fadeUp 1.2s 0.15s ease both;backdrop-filter:blur(4px)}
+.hero-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.6rem,5vw,2.9rem);background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem;line-height:1.2;animation:fadeUp 1.2s 0.3s ease both}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.05rem,3vw,1.3rem);color:var(--muted);font-style:italic;margin-bottom:2rem;line-height:1.7;animation:fadeUp 1.2s 0.45s ease both}
 .hero-btns{display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 1.2s 0.6s ease both}
-.btn-primary{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--deep);padding:0.85rem 1.8rem;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;border:none;font-weight:500;border-radius:2px;transition:all 0.3s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,0.35)}
-.btn-outline{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:0.85rem 1.8rem;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;border-radius:2px;transition:all 0.3s}
-.btn-outline:hover{background:rgba(201,168,76,0.1)}
+.hero-stats{display:flex;align-items:center;justify-content:center;gap:0;margin-top:2.5rem;border:1px solid var(--card-border);border-radius:40px;background:rgba(255,255,255,0.02);backdrop-filter:blur(8px);padding:0.8rem 0;max-width:380px;margin-left:auto;margin-right:auto;animation:fadeUp 1.2s 0.75s ease both}
+.stat-item{flex:1;text-align:center;padding:0 1rem}
+.stat-num{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--gold);display:block}
+.stat-label{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);display:block;margin-top:0.15rem}
+.stat-divider{width:1px;height:32px;background:var(--card-border);flex-shrink:0}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;animation:fadeIn 2s 1.5s ease both;opacity:0;pointer-events:none}
+.scroll-hint-line{width:1px;height:40px;background:linear-gradient(to bottom,transparent,var(--gold));animation:scrollPulse 2s infinite}
+@keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.5)}50%{opacity:1;transform:scaleY(1)}}
+.scroll-hint-text{font-size:0.56rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold)}
 
-/* ════ DIVIDER ════ */
+.btn-primary{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--deep);padding:0.85rem 2rem;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;border:none;font-weight:600;border-radius:var(--radius);transition:all 0.3s;position:relative;overflow:hidden}
+.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(255,255,255,0.15),transparent);transform:translateX(-100%);transition:transform 0.5s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,0.4)}
+.btn-primary:hover::after{transform:translateX(100%)}
+.btn-outline{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:0.85rem 2rem;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;border-radius:var(--radius);transition:all 0.3s}
+.btn-outline:hover{background:rgba(201,168,76,0.1);transform:translateY(-2px)}
+
 .divider{display:flex;align-items:center;gap:1rem;padding:1.5rem 2rem;justify-content:center}
 .divider-line{height:1px;width:60px;background:linear-gradient(to right,transparent,var(--gold))}
 .divider-line.r{background:linear-gradient(to left,transparent,var(--gold))}
 .divider-symbol{color:var(--gold);font-size:1.1rem}
 
-/* ════ SECTIONS ════ */
-.section{padding:4rem 1.5rem;position:relative;z-index:1}
+.section{padding:5rem 1.5rem;position:relative;z-index:1}
 .section-label{text-align:center;font-size:0.68rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:0.7rem}
 .section-title{text-align:center;font-family:'Cinzel Decorative',serif;font-size:clamp(1.1rem,3vw,1.9rem);color:var(--text);margin-bottom:0.7rem;line-height:1.3}
-.section-sub{text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.5vw,1.2rem);color:var(--muted);font-style:italic;margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.6}
+.section-sub{text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.5vw,1.2rem);color:var(--muted);font-style:italic;margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6}
 
-/* ════ PLANETS ════ */
-.planets-section{padding:2rem 1rem;position:relative;z-index:1}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s var(--ease),transform 0.7s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-28px);transition:opacity 0.7s var(--ease),transform 0.7s var(--ease)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(28px);transition:opacity 0.7s var(--ease),transform 0.7s var(--ease)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+.offer-banner{background:linear-gradient(135deg,rgba(201,168,76,0.08),rgba(201,168,76,0.03));border:1px solid rgba(201,168,76,0.3);border-radius:var(--radius);padding:1.2rem 1.5rem;max-width:900px;margin:0 auto 3rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;position:relative}
+.offer-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+.offer-icon{font-size:2rem;flex-shrink:0}
+.offer-text{flex:1}
+.offer-text strong{font-family:'Cinzel Decorative',serif;font-size:0.85rem;color:var(--gold);display:block;margin-bottom:0.2rem}
+.offer-text span{font-size:0.8rem;color:var(--muted);line-height:1.5}
+.offer-countdown{display:flex;gap:0.5rem;align-items:center;flex-shrink:0;font-family:'Cinzel Decorative',serif}
+.count-unit{text-align:center}
+.count-num{background:var(--surface2);border:1px solid var(--card-border);font-size:1.1rem;color:var(--gold);padding:0.3rem 0.6rem;border-radius:3px;display:block;min-width:38px}
+.count-label{font-size:0.5rem;color:var(--muted);letter-spacing:0.1em;display:block;margin-top:0.2rem;text-transform:uppercase}
+.count-sep{color:var(--gold);font-size:1.2rem;padding-bottom:0.4rem}
+
+.planets-section{padding:2rem 1rem 1rem;position:relative;z-index:1}
 .planets-strip{display:grid;grid-template-columns:repeat(7,1fr);max-width:900px;margin:0 auto}
-.planet-item{text-align:center;padding:1.5rem 0.5rem;border-right:1px solid rgba(201,168,76,0.1)}
+.planet-item{text-align:center;padding:1.5rem 0.5rem;border-right:1px solid rgba(201,168,76,0.08);transition:background 0.3s;cursor:default}
 .planet-item:last-child{border-right:none}
-.planet-symbol{font-size:2rem;margin-bottom:0.4rem;display:block}
-.planet-name{font-family:'Cinzel Decorative',serif;font-size:0.55rem;color:var(--gold);letter-spacing:0.1em;display:block;margin-bottom:0.25rem}
-.planet-domain{font-size:0.65rem;color:var(--muted);line-height:1.3}
+.planet-item:hover{background:rgba(201,168,76,0.04)}
+.planet-symbol{font-size:2rem;margin-bottom:0.4rem;display:block;transition:transform 0.3s}
+.planet-item:hover .planet-symbol{transform:scale(1.2) translateY(-2px)}
+.planet-name{font-family:'Cinzel Decorative',serif;font-size:0.52rem;color:var(--gold);letter-spacing:0.1em;display:block;margin-bottom:0.25rem}
+.planet-domain{font-size:0.62rem;color:var(--muted);line-height:1.3}
 
-/* ════ SERVICE CARDS ════ */
-.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:1.2rem;max-width:1100px;margin:0 auto}
-.service-card{background:var(--surface);border:1px solid var(--card-border);padding:1.8rem;position:relative;overflow:hidden;transition:all 0.35s var(--ease);border-radius:2px}
-.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.35s}
-.service-card:hover{border-color:var(--card-border-hover);transform:translateY(-3px)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:1.4rem;max-width:1120px;margin:0 auto}
+.service-card{background:var(--surface);border:1px solid var(--card-border);padding:2rem;position:relative;overflow:hidden;transition:all 0.4s var(--ease);border-radius:var(--radius)}
+.service-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,rgba(201,168,76,0.06),transparent 60%);opacity:0;transition:opacity 0.4s}
+.service-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.4s}
+.service-card:hover{border-color:var(--card-border-hover);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.3)}
 .service-card:hover::before{opacity:1}
+.service-card:hover::after{opacity:1}
 .card-icon{font-size:1.8rem;margin-bottom:1rem;display:block}
-.card-planet{position:absolute;top:1rem;right:1rem;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);opacity:0.6}
+.card-planet{position:absolute;top:1rem;right:1rem;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);opacity:0.5;border:1px solid rgba(201,168,76,0.2);padding:0.15rem 0.5rem;border-radius:10px}
 .card-title{font-family:'Cinzel Decorative',serif;font-size:0.88rem;color:var(--text);margin-bottom:0.7rem;line-height:1.45}
 .card-desc{font-size:0.82rem;color:var(--muted);line-height:1.7;margin-bottom:1.2rem}
 .card-questions{list-style:none;margin-bottom:1.2rem}
-.card-questions li{font-size:0.76rem;color:var(--muted);padding:0.28rem 0 0.28rem 1rem;position:relative;line-height:1.4}
-.card-questions li::before{content:'◆';position:absolute;left:0;color:var(--gold);font-size:0.45rem;top:0.5rem}
+.card-questions li{font-size:0.76rem;color:var(--muted);padding:0.3rem 0 0.3rem 1.2rem;position:relative;line-height:1.4;border-bottom:1px solid rgba(201,168,76,0.05)}
+.card-questions li:last-child{border-bottom:none}
+.card-questions li::before{content:'diamond';font-family:serif;position:absolute;left:0;color:var(--gold);font-size:0.4rem;top:0.55rem}
+.card-questions li::before{content:'◆';font-family:inherit}
 .card-price{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--card-border);padding-top:1rem;gap:0.5rem}
-.price{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--gold);font-weight:600;line-height:1}
-.price-label{font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;margin-top:0.2rem}
-.book-btn{background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold);padding:0.45rem 1rem;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;border-radius:2px;transition:all 0.25s;white-space:nowrap;flex-shrink:0}
+.price{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);font-weight:600;line-height:1}
+.price-label{font-size:0.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;margin-top:0.2rem}
+.book-btn{background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold);padding:0.5rem 1.1rem;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;border-radius:var(--radius);transition:all 0.25s;white-space:nowrap;flex-shrink:0}
 .book-btn:hover{background:var(--gold);color:var(--deep)}
-.featured-card{background:var(--featured-bg)!important;border:1px solid rgba(201,168,76,0.4)!important}
-.featured-badge{display:inline-block;background:var(--gold);color:var(--deep);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;padding:0.22rem 0.65rem;margin-bottom:0.9rem;font-weight:600;border-radius:1px}
+.featured-card{background:var(--featured-bg)!important;border:1px solid rgba(201,168,76,0.35)!important}
+.featured-badge{display:inline-block;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--deep);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;padding:0.22rem 0.7rem;margin-bottom:0.9rem;font-weight:600;border-radius:1px}
 
-/* ════ ABOUT ════ */
-.about-section{background:var(--mid);padding:4rem 1.5rem;position:relative;z-index:1;transition:background var(--t) var(--ease)}
-.about-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:3.5rem;align-items:center}
-.about-portrait{width:100%;aspect-ratio:3/4;background:var(--surface);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;position:relative;overflow:hidden;border-radius:2px;transition:background var(--t) var(--ease)}
+.about-section{background:var(--mid);padding:5rem 1.5rem;position:relative;z-index:1;transition:background var(--t) var(--ease)}
+.about-inner{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:center}
+.about-portrait{width:100%;aspect-ratio:3/4;background:var(--surface);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;position:relative;overflow:hidden;border-radius:var(--radius)}
+.about-portrait img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.about-portrait-inner{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;width:100%;height:100%;position:absolute;inset:0}
 .portrait-initial{font-family:'Cinzel Decorative',serif;font-size:clamp(2.5rem,8vw,4rem);color:var(--gold);opacity:0.8}
 .about-name{font-family:'Cinzel Decorative',serif;font-size:clamp(1.2rem,3vw,1.5rem);color:var(--text);margin-bottom:0.3rem}
 .about-title-tag{font-size:0.68rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem}
 .about-bio{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.5vw,1.15rem);color:var(--muted);line-height:1.85;font-style:italic;margin-bottom:1.3rem}
 .about-bio p+p{margin-top:0.9rem}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin:1.5rem 0}
+.about-stat{background:var(--surface);border:1px solid var(--card-border);padding:0.9rem;border-radius:var(--radius);text-align:center}
+.about-stat-num{font-family:'Cinzel Decorative',serif;color:var(--gold);font-size:1.2rem;display:block}
+.about-stat-label{font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem;display:block}
 .contact-detail{display:flex;gap:0.8rem;align-items:flex-start;margin-bottom:0.7rem;flex-wrap:wrap}
 .contact-detail span:first-child{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);min-width:80px;padding-top:0.1rem}
 .contact-detail span:last-child{font-size:0.88rem;color:var(--text)}
 
-/* ════ TESTIMONIALS ════ */
-.testimonial-section{padding:4rem 1.5rem;background:var(--surface);position:relative;z-index:1;transition:background var(--t) var(--ease)}
-.testimonials{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:1.2rem;max-width:860px;margin:0 auto}
-.testimonial{background:var(--deep);border:1px solid var(--card-border);padding:1.6rem;position:relative;border-radius:2px;transition:background var(--t) var(--ease),border-color var(--t) var(--ease)}
-.testimonial-stars{color:var(--gold);font-size:0.8rem;margin-bottom:0.7rem;letter-spacing:0.1em}
-.testimonial-quote{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--muted);font-style:italic;line-height:1.75;margin-bottom:1rem}
+.testimonial-section{padding:5rem 1.5rem;background:var(--surface);position:relative;z-index:1;transition:background var(--t) var(--ease)}
+.testimonials{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:1.4rem;max-width:900px;margin:0 auto}
+.testimonial{background:var(--deep);border:1px solid var(--card-border);padding:1.8rem;position:relative;border-radius:var(--radius);transition:all 0.35s var(--ease)}
+.testimonial:hover{border-color:var(--card-border-hover);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.25)}
+.testimonial-stars{color:var(--gold);font-size:0.85rem;margin-bottom:0.8rem;letter-spacing:0.1em}
+.testimonial-quote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--muted);font-style:italic;line-height:1.75;margin-bottom:1.2rem}
+.testimonial-footer{display:flex;align-items:center;gap:0.8rem}
+.testimonial-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;font-size:0.7rem;color:var(--deep);flex-shrink:0;font-weight:700}
 .testimonial-author{font-size:0.72rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase}
-.big-quote{position:absolute;top:0.8rem;right:1.2rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:rgba(201,168,76,0.08);line-height:1}
+.big-quote{position:absolute;top:0.8rem;right:1.2rem;font-family:'Cormorant Garamond',serif;font-size:4rem;color:rgba(201,168,76,0.06);line-height:1}
 
-/* ════ CTA ════ */
-.cta-section{padding:5rem 1.5rem;text-align:center;position:relative;z-index:1;overflow:hidden}
-.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,0.05) 0%,transparent 70%)}
-.cta-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.3rem,4vw,2.4rem);color:var(--text);margin-bottom:0.9rem;line-height:1.25}
+.faq-section{padding:5rem 1.5rem;position:relative;z-index:1}
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--card-border)}
+.faq-question{width:100%;text-align:left;background:none;border:none;color:var(--text);padding:1.3rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:0.9rem;letter-spacing:0.04em;cursor:pointer;transition:color 0.25s}
+.faq-question:hover{color:var(--gold)}
+.faq-icon{width:24px;height:24px;border-radius:50%;border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:0.85rem;transition:transform 0.3s,background 0.3s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(201,168,76,0.1)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.45s var(--ease)}
+.faq-answer-inner{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--muted);font-style:italic;line-height:1.7;padding-bottom:1.3rem}
+.faq-item.open .faq-answer{max-height:400px}
+
+.cta-section{padding:6rem 1.5rem;text-align:center;position:relative;z-index:1;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,0.07) 0%,transparent 70%)}
+.cta-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.3rem,4vw,2.5rem);color:var(--text);margin-bottom:0.9rem;line-height:1.25}
 .cta-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.5vw,1.3rem);color:var(--muted);font-style:italic;margin-bottom:2.2rem;line-height:1.6}
 .cta-contact{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;align-items:center}
 .cta-item{text-align:center}
 .cta-item-label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
 .cta-item-val{font-size:clamp(1rem,2.5vw,1.2rem);color:var(--text)}
 .cta-divider{width:1px;background:rgba(201,168,76,0.2);height:40px;align-self:center}
+.cta-methods{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.cta-method{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:var(--muted);letter-spacing:0.1em;border:1px solid var(--card-border);padding:0.5rem 1rem;border-radius:20px}
+.cta-method-icon{color:var(--gold)}
+.booking-link{text-align:center;margin-top:2rem;font-size:0.95rem;line-height:1.7;padding:1rem;border-top:1px solid var(--card-border)}
+.booking-link a{color:var(--gold);font-weight:500;text-decoration:none;transition:color 0.25s}
+.booking-link a:hover{text-decoration:underline;color:var(--gold-light)}
 
-/* ════ FOOTER ════ */
-footer{background:var(--deep);border-top:1px solid rgba(201,168,76,0.1);padding:2rem 1.5rem;text-align:center;position:relative;z-index:1;transition:background var(--t) var(--ease)}
-.footer-logo-img{height:58px;width:auto;margin:0 auto 0.8rem;opacity:0.85}
-.footer-text{font-size:0.72rem;color:var(--muted);letter-spacing:0.08em;line-height:1.9}
+.gallery-section{padding:5rem 1.5rem;position:relative;z-index:1}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:1.2rem;max-width:1120px;margin:0 auto}
+.gallery-item{background:var(--surface);border:1px solid var(--card-border);border-radius:var(--radius);overflow:hidden;position:relative;transition:all 0.4s var(--ease);aspect-ratio:4/3;cursor:pointer}
+.gallery-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);opacity:0;transition:opacity 0.3s;font-size:1.5rem}
+.gallery-item:hover{border-color:var(--card-border-hover);transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,0.35)}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s var(--ease)}
+.gallery-item:hover img{transform:scale(1.08)}
 
-/* ════ FLOATING WHATSAPP (mobile) ════ */
-.wa-float{
-  display:none;position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;
-  background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;border:none;
-  font-size:1.6rem;align-items:center;justify-content:center;
-  box-shadow:0 4px 20px rgba(37,211,102,0.45);transition:transform 0.25s,box-shadow 0.25s;
-}
-.wa-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,0.6)}
+.lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.93);align-items:center;justify-content:center;padding:1rem}
+.lightbox.open{display:flex}
+.lightbox-img{max-width:90vw;max-height:90vh;object-fit:contain;border:1px solid var(--card-border);border-radius:var(--radius)}
+.lightbox-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:1px solid var(--gold);color:var(--gold);width:40px;height:40px;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.25s}
+.lightbox-close:hover{background:var(--gold);color:var(--deep)}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);border:1px solid var(--gold);color:var(--gold);width:48px;height:48px;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.25s}
+.lightbox-nav:hover{background:var(--gold);color:var(--deep)}
+.lightbox-prev{left:1rem}
+.lightbox-next{right:1rem}
+.lightbox-counter{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);font-size:0.72rem;color:var(--muted);letter-spacing:0.1em}
 
-/* ════════════════════════════════════
-   RESPONSIVE
-════════════════════════════════════ */
+.wa-float{display:flex;position:fixed;bottom:2rem;right:2rem;z-index:300;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;border:none;font-size:1.7rem;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,0.5);transition:transform 0.25s,box-shadow 0.25s;animation:bounceIn 0.6s 2s both}
+@keyframes bounceIn{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}
+.wa-float:hover{transform:scale(1.12);box-shadow:0 6px 30px rgba(37,211,102,0.7)}
 
-/* Tablet ≤ 900px */
+footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3rem 1.5rem 2rem;text-align:center;position:relative;z-index:1;transition:background var(--t) var(--ease)}
+.footer-logo-img{height:60px;width:auto;margin:0 auto 1rem;opacity:0.85}
+.footer-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.footer-links a{font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:color 0.25s}
+.footer-links a:hover{color:var(--gold)}
+.footer-text{font-size:0.72rem;color:var(--muted2);letter-spacing:0.08em;line-height:1.9}
+.footer-bottom{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(201,168,76,0.08);font-size:0.65rem;color:var(--muted2);letter-spacing:0.1em}
+.progress-bar{position:fixed;top:0;left:0;height:2px;z-index:1000;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));width:0%;transition:width 0.1s linear}
+
 @media(max-width:900px){
-  .nav-links,.lang-group,.nav-book{display:none}
+  .nav-links,.nav-book{display:none}
   .hamburger{display:flex}
-
+  .about-inner{grid-template-columns:1fr;gap:2rem}
+  .about-portrait{aspect-ratio:unset;height:260px}
   .planets-strip{grid-template-columns:repeat(4,1fr)}
-  .planet-item:nth-child(4){border-right:none}
-  .planet-item:nth-child(5),.planet-item:nth-child(6),.planet-item:nth-child(7){border-top:1px solid rgba(201,168,76,0.08)}
-  .planet-item:nth-child(7){border-right:none}
-
-  .about-inner{grid-template-columns:1fr;gap:2rem;text-align:center}
-  .about-portrait{aspect-ratio:1/1;max-width:180px;margin:0 auto}
-  .section-label[style]{text-align:center!important}
-  .contact-detail{justify-content:center}
-  .about-section .btn-primary{width:100%;max-width:300px}
-
-  .wa-float{display:flex}
 }
-
-/* Mobile ≤ 600px */
 @media(max-width:600px){
-  nav{padding:0 1rem;height:62px}
-  .nav-logo-img{height:70px}
-  .theme-btn{width:32px;height:32px;font-size:0.95rem}
-  .hamburger{width:34px;height:34px}
-
-  .hero{padding:4rem 1.2rem 2.5rem}
-  .hero-logo{width:78vw}
-  .hero-badge{font-size:0.6rem;letter-spacing:0.18em;padding:0.35rem 0.8rem}
-  .hero-sub{font-size:1.02rem}
-  .hero-btns{flex-direction:column;align-items:center;gap:0.7rem}
-  .btn-primary,.btn-outline{width:100%;max-width:280px;text-align:center;padding:0.9rem 1rem}
-
-  .planets-section{padding:1rem 0.3rem}
-  .planets-strip{grid-template-columns:repeat(4,1fr)}
-  .planet-item{padding:1.2rem 0.3rem}
-  .planet-symbol{font-size:1.5rem}
-  .planet-name{font-size:0.48rem}
-  .planet-domain{font-size:0.56rem}
-
-  .section{padding:2.8rem 1rem}
-  .services-grid{grid-template-columns:1fr}
-  .service-card{padding:1.4rem}
-
-  .about-section{padding:2.8rem 1rem}
-  .testimonial-section{padding:2.8rem 1rem}
-  .testimonials{grid-template-columns:1fr}
-
-  .cta-section{padding:3rem 1rem}
-  .cta-contact{gap:1rem}
-  .cta-divider{display:none}
-  .cta-section .btn-primary{width:100%;max-width:320px;padding:1rem}
-
-  footer{padding:1.8rem 1rem}
-  .footer-text{font-size:0.66rem}
-
-  .mobile-drawer{top:62px;padding:1.5rem 1.2rem}
-  .drawer-links a{font-size:1rem;padding:0.8rem 0}
-}
-
-/* Very small ≤ 380px */
-@media(max-width:380px){
-  .nav-logo-img{height:38px}
-  .hero-logo{width:86vw}
-  .planets-strip{grid-template-columns:repeat(3,1fr)}
-  .planet-item:nth-child(3n){border-right:none}
-  .planet-item:nth-child(n+4){border-top:1px solid rgba(201,168,76,0.08)}
-  .planet-item:nth-child(7){grid-column:2}
+  .hero-stats{padding:0.6rem 0}
+  .stat-item{padding:0 0.6rem}
+  .stat-num{font-size:0.85rem}
+  .stat-label{font-size:0.5rem}
+  .offer-banner{flex-direction:column;text-align:center}
+  .hero-wheel{width:95vw;height:95vw}
+  .announce-bar{font-size:0.65rem;padding:0.55rem 2.5rem 0.55rem 1rem}
+  .faq-question{font-size:0.82rem}
 }
 </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 
-<!-- Prevent theme flash -->
-<script>(function(){if(localStorage.getItem('astrovedicTheme')==='light')document.documentElement.classList.add('light')})();</script>
+<div class="announce-bar" id="announceBar">
+  <span>🎉 <strong>शुभारंभ ऑफर</strong> — First 10 clients get a FREE Kundali Chart Reading!</span>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfGjzAdg_mRPDnXNceJOhPbaoeuYHPFIDg9QtpJgGQSdUwnQA/viewform?usp=header" target="_blank">Book Now →</a>
+  <button class="announce-close" onclick="document.getElementById('announceBar').style.display='none'" aria-label="Close">✕</button>
+</div>
 
 <div class="starfield" id="starfield"></div>
 
-<!-- ══════════ NAV ══════════ -->
-<nav>
+<nav id="mainNav">
   <a class="nav-logo" href="#">
-    <img class="nav-logo-img" src="revan-removebg-preview.png" alt="AstroVedic Mind"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-    <span class="nav-logo-text">AstroVedic Mind</span>
+    <img class="nav-logo-img" src="revan-removebg-preview.png" alt="AstroVedic Mind" onerror="this.style.display='none'"/>
   </a>
-
   <div class="nav-links">
     <a href="#services" data-i18n="nav.services">Services</a>
-    <a href="#about"    data-i18n="nav.about">About</a>
-    <a href="#contact"  data-i18n="nav.contact">Contact</a>
+    <a href="#about" data-i18n="nav.about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
   </div>
-
   <div class="nav-right">
     <div class="lang-group">
       <button class="lang-btn active" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="hi">हिं</button>
-      <button class="lang-btn" data-lang="mr">मर</button>
+      <button class="lang-btn" data-lang="hi">HI</button>
+      <button class="lang-btn" data-lang="mr">MR</button>
     </div>
-    <button class="theme-btn" id="theme-toggle" aria-label="Toggle light/dark mode">
-      <span class="icon-sun">☀️</span>
-      <span class="icon-moon">🌙</span>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+      <span class="icon-sun">☀️</span><span class="icon-moon">🌙</span>
     </button>
-    <button class="nav-book" data-i18n="nav.bookNow"
-            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
-    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-book" onclick="window.open('https://wa.me/918080928763?text=Namaste! I want to book an astrology consultation.')" data-i18n="nav.bookNow">Book Now</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- Mobile drawer -->
-<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-  <nav class="drawer-links">
-    <a href="#services" data-i18n="nav.services">Services</a>
-    <a href="#about"    data-i18n="nav.about">About</a>
-    <a href="#contact"  data-i18n="nav.contact">Contact</a>
-  </nav>
-  <div class="drawer-lang">
-    <button class="lang-btn active" data-lang="en">EN</button>
-    <button class="lang-btn" data-lang="hi">हिं</button>
-    <button class="lang-btn" data-lang="mr">मर</button>
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-links">
+    <a href="#services" onclick="closeDrawer()" data-i18n="nav.services">Services</a>
+    <a href="#about" onclick="closeDrawer()" data-i18n="nav.about">About</a>
+    <a href="#faq" onclick="closeDrawer()">FAQ</a>
+    <a href="#gallery" onclick="closeDrawer()">Gallery</a>
+    <a href="#contact" onclick="closeDrawer()" data-i18n="nav.contact">Contact</a>
   </div>
-  <button class="drawer-book"
-          onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});closeDrawer()">
-    📞 &nbsp; Book Consultation
-  </button>
+  <div class="drawer-lang">
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="hi">HI</button>
+    <button class="lang-btn" data-lang="mr">MR</button>
+  </div>
+  <button class="drawer-book" onclick="window.open('https://wa.me/918080928763?text=Namaste! I want to book an astrology consultation.')">📞 Book Consultation</button>
 </div>
 
-<!-- Floating WhatsApp -->
-<button class="wa-float" aria-label="Chat on WhatsApp"
-        onclick="window.open('https://wa.me/918080928763?text=Namaste! I want to book an astrology consultation.')">💬</button>
-
-<script>
-// Theme
-document.getElementById('theme-toggle').addEventListener('click',function(){
-  var l=document.documentElement.classList.toggle('light');
-  localStorage.setItem('astrovedicTheme',l?'light':'dark');
-});
-
-// Drawer
-var _ham=document.getElementById('hamburger');
-var _dr=document.getElementById('mobile-drawer');
-function openDrawer(){_ham.classList.add('open');_ham.setAttribute('aria-expanded','true');_dr.classList.add('open');_dr.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
-function closeDrawer(){_ham.classList.remove('open');_ham.setAttribute('aria-expanded','false');_dr.classList.remove('open');_dr.setAttribute('aria-hidden','true');document.body.style.overflow=''}
-_ham.addEventListener('click',function(){_dr.classList.contains('open')?closeDrawer():openDrawer()});
-_dr.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeDrawer)});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer()});
-
-// Lang
-document.querySelectorAll('.lang-btn').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    var lang=this.getAttribute('data-lang');
-    document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active')});
-    document.querySelectorAll('[data-lang="'+lang+'"]').forEach(function(b){b.classList.add('active')});
-    if(typeof setLanguage==='function')setLanguage(lang);
-    localStorage.setItem('astrovedicLang',lang);
-  });
-});
-</script>
-
-<!-- ══════════ HERO ══════════ -->
+<!-- HERO -->
 <section class="hero">
-  <svg class="mandala" viewBox="0 0 400 400" fill="none">
-    <circle cx="200" cy="200" r="190" stroke="#C9A84C" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="150" stroke="#C9A84C" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="110" stroke="#C9A84C" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="70"  stroke="#C9A84C" stroke-width="0.5"/>
-    <circle cx="200" cy="200" r="30"  stroke="#C9A84C" stroke-width="0.5"/>
-    <line x1="200" y1="10"  x2="200" y2="390" stroke="#C9A84C" stroke-width="0.3"/>
-    <line x1="10"  y1="200" x2="390" y2="200" stroke="#C9A84C" stroke-width="0.3"/>
-    <line x1="65"  y1="65"  x2="335" y2="335" stroke="#C9A84C" stroke-width="0.3"/>
-    <line x1="335" y1="65"  x2="65"  y2="335" stroke="#C9A84C" stroke-width="0.3"/>
-    <polygon points="200,50 238,150 350,150 263,213 294,320 200,260 106,320 137,213 50,150 162,150" stroke="#C9A84C" stroke-width="0.4" fill="none"/>
-    <polygon points="200,90 225,165 305,165 243,210 267,290 200,245 133,290 157,210 95,165 175,165" stroke="#C9A84C" stroke-width="0.3" fill="none"/>
+  <svg class="hero-wheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <g class="wheel-outer">
+      <circle cx="250" cy="250" r="240" fill="none" stroke="#C9A84C" stroke-width="0.5"/>
+      <circle cx="250" cy="250" r="220" fill="none" stroke="#C9A84C" stroke-width="0.3"/>
+      <g stroke="#C9A84C" stroke-width="0.4">
+        <line x1="250" y1="10" x2="250" y2="490"/>
+        <line x1="10" y1="250" x2="490" y2="250"/>
+        <line x1="80" y1="80" x2="420" y2="420"/>
+        <line x1="420" y1="80" x2="80" y2="420"/>
+        <line x1="250" y1="10" x2="250" y2="490" transform="rotate(30,250,250)"/>
+        <line x1="250" y1="10" x2="250" y2="490" transform="rotate(60,250,250)"/>
+        <line x1="250" y1="10" x2="250" y2="490" transform="rotate(90,250,250)"/>
+        <line x1="250" y1="10" x2="250" y2="490" transform="rotate(120,250,250)"/>
+        <line x1="250" y1="10" x2="250" y2="490" transform="rotate(150,250,250)"/>
+      </g>
+      <text x="250" y="26" text-anchor="middle" fill="#C9A84C" font-size="14">♈</text>
+      <text x="364" y="64" text-anchor="middle" fill="#C9A84C" font-size="14">♉</text>
+      <text x="436" y="172" text-anchor="middle" fill="#C9A84C" font-size="14">♊</text>
+      <text x="464" y="255" text-anchor="middle" fill="#C9A84C" font-size="14">♋</text>
+      <text x="436" y="342" text-anchor="middle" fill="#C9A84C" font-size="14">♌</text>
+      <text x="364" y="442" text-anchor="middle" fill="#C9A84C" font-size="14">♍</text>
+      <text x="250" y="482" text-anchor="middle" fill="#C9A84C" font-size="14">♎</text>
+      <text x="136" y="442" text-anchor="middle" fill="#C9A84C" font-size="14">♏</text>
+      <text x="64" y="342" text-anchor="middle" fill="#C9A84C" font-size="14">♐</text>
+      <text x="38" y="255" text-anchor="middle" fill="#C9A84C" font-size="14">♑</text>
+      <text x="64" y="172" text-anchor="middle" fill="#C9A84C" font-size="14">♒</text>
+      <text x="136" y="64" text-anchor="middle" fill="#C9A84C" font-size="14">♓</text>
+    </g>
+    <g class="wheel-mid">
+      <circle cx="250" cy="250" r="155" fill="none" stroke="#C9A84C" stroke-width="0.6"/>
+      <circle cx="250" cy="250" r="130" fill="none" stroke="#C9A84C" stroke-width="0.3"/>
+    </g>
+    <g class="wheel-inner">
+      <circle cx="250" cy="250" r="65" fill="none" stroke="#C9A84C" stroke-width="0.8"/>
+      <circle cx="250" cy="250" r="20" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+      <line x1="250" y1="185" x2="250" y2="315" stroke="#C9A84C" stroke-width="0.5"/>
+      <line x1="185" y1="250" x2="315" y2="250" stroke="#C9A84C" stroke-width="0.5"/>
+    </g>
   </svg>
+  <div class="hero-glow"></div>
   <div class="hero-content">
     <div class="hero-logo-wrap">
-      <img class="hero-logo" src="1776691625318_image.png" alt="AstroVedic Mind" onerror="this.style.display='none'"/>
+      <img class="hero-logo" src="revan-removebg-preview.png" alt="AstroVedic Mind by Nayan (Revan)" onerror="this.style.display='none'"/>
     </div>
-    <div class="hero-badge" data-i18n="hero.badge">🪐 &nbsp; Modern Vedic Astrology &nbsp; 🪐</div>
+    <div class="hero-badge" data-i18n="hero.badge">🪐 Modern Vedic Astrology 🪐</div>
+    <h1 class="hero-title" data-i18n="hero.title">Decode Your Destiny with Vedic Wisdom</h1>
     <p class="hero-sub" data-i18n="hero.sub">Ancient wisdom meets modern understanding —<br>your personalized cosmic guidance awaits</p>
     <div class="hero-btns">
-      <button class="btn-primary" data-i18n="hero.explore"
-              onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Services</button>
-      <button class="btn-outline" data-i18n="hero.bookConsult"
-              onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Consultation</button>
+      <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})" data-i18n="hero.explore">Explore Services</button>
+      <button class="btn-outline" onclick="window.open('https://wa.me/918080928763?text=Namaste! I want to book an astrology consultation.')" data-i18n="hero.bookConsult">Book Consultation</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">500+</span><span class="stat-label" data-i18n="hero.stat1">Readings</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><span class="stat-num">3</span><span class="stat-label" data-i18n="hero.stat2">Languages</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><span class="stat-num">★</span><span class="stat-label" data-i18n="hero.stat3">On-Call</span></div>
     </div>
   </div>
+  <div class="scroll-hint"><span class="scroll-hint-text">Scroll</span><div class="scroll-hint-line"></div></div>
 </section>
 
-<div class="divider"><div class="divider-line"></div><div class="divider-symbol">✦</div><div class="divider-symbol" style="color:var(--muted);font-size:0.85rem">ॐ</div><div class="divider-symbol">✦</div><div class="divider-line r"></div></div>
+<div class="divider"><div class="divider-line"></div><div class="divider-symbol">✦</div><div class="divider-line r"></div></div>
 
-<!-- ══════════ PLANETS ══════════ -->
+<!-- PLANETS -->
 <section class="planets-section">
   <div class="planets-strip">
-    <div class="planet-item"><span class="planet-symbol">☀️</span><span class="planet-name" data-i18n="planets.surya.name">Surya</span><span class="planet-domain" data-i18n="planets.surya.domain">Soul &amp; Identity</span></div>
-    <div class="planet-item"><span class="planet-symbol">🌙</span><span class="planet-name" data-i18n="planets.chandra.name">Chandra</span><span class="planet-domain" data-i18n="planets.chandra.domain">Mind &amp; Emotions</span></div>
-    <div class="planet-item"><span class="planet-symbol">♂️</span><span class="planet-name" data-i18n="planets.mangal.name">Mangal</span><span class="planet-domain" data-i18n="planets.mangal.domain">Energy &amp; Action</span></div>
-    <div class="planet-item"><span class="planet-symbol">☿️</span><span class="planet-name" data-i18n="planets.budha.name">Budha</span><span class="planet-domain" data-i18n="planets.budha.domain">Intellect &amp; Speech</span></div>
-    <div class="planet-item"><span class="planet-symbol">♃</span><span class="planet-name" data-i18n="planets.guru.name">Guru</span><span class="planet-domain" data-i18n="planets.guru.domain">Wisdom &amp; Fortune</span></div>
-    <div class="planet-item"><span class="planet-symbol">♀️</span><span class="planet-name" data-i18n="planets.shukra.name">Shukra</span><span class="planet-domain" data-i18n="planets.shukra.domain">Love &amp; Beauty</span></div>
-    <div class="planet-item"><span class="planet-symbol">♄</span><span class="planet-name" data-i18n="planets.shani.name">Shani</span><span class="planet-domain" data-i18n="planets.shani.domain">Karma &amp; Discipline</span></div>
+    <div class="planet-item reveal"><span class="planet-symbol">☉</span><span class="planet-name" data-i18n="planets.surya.name">Surya</span><span class="planet-domain" data-i18n="planets.surya.domain">Soul &amp; Identity</span></div>
+    <div class="planet-item reveal" style="transition-delay:.08s"><span class="planet-symbol">☽</span><span class="planet-name" data-i18n="planets.chandra.name">Chandra</span><span class="planet-domain" data-i18n="planets.chandra.domain">Mind &amp; Emotions</span></div>
+    <div class="planet-item reveal" style="transition-delay:.16s"><span class="planet-symbol">♂</span><span class="planet-name" data-i18n="planets.mangal.name">Mangal</span><span class="planet-domain" data-i18n="planets.mangal.domain">Energy &amp; Action</span></div>
+    <div class="planet-item reveal" style="transition-delay:.24s"><span class="planet-symbol">☿</span><span class="planet-name" data-i18n="planets.budha.name">Budha</span><span class="planet-domain" data-i18n="planets.budha.domain">Intellect &amp; Speech</span></div>
+    <div class="planet-item reveal" style="transition-delay:.32s"><span class="planet-symbol">♃</span><span class="planet-name" data-i18n="planets.guru.name">Guru</span><span class="planet-domain" data-i18n="planets.guru.domain">Wisdom &amp; Fortune</span></div>
+    <div class="planet-item reveal" style="transition-delay:.4s"><span class="planet-symbol">♀</span><span class="planet-name" data-i18n="planets.shukra.name">Shukra</span><span class="planet-domain" data-i18n="planets.shukra.domain">Love &amp; Beauty</span></div>
+    <div class="planet-item reveal" style="transition-delay:.48s"><span class="planet-symbol">♄</span><span class="planet-name" data-i18n="planets.shani.name">Shani</span><span class="planet-domain" data-i18n="planets.shani.domain">Karma &amp; Discipline</span></div>
   </div>
 </section>
 
 <div class="divider"><div class="divider-line"></div><div class="divider-symbol">✦</div><div class="divider-line r"></div></div>
 
-<!-- ══════════ SERVICES ══════════ -->
+<!-- SERVICES -->
 <section class="section" id="services">
-  <div class="section-label" data-i18n="services.label">Our Sacred Services</div>
-  <div class="section-title" data-i18n="services.title">Choose Your Reading</div>
-  <div class="section-sub"  data-i18n="services.sub">Each reading is a deeply personal journey into your cosmic blueprint</div>
-  <div class="services-grid">
+  <div class="section-label reveal" data-i18n="services.label">Our Sacred Services</div>
+  <div class="section-title reveal" data-i18n="services.title">Choose Your Reading</div>
+  <div class="section-sub reveal" data-i18n="services.sub">Each reading is a deeply personal journey into your cosmic blueprint</div>
 
-    <div class="service-card featured-card">
-      <span class="featured-badge" data-i18n="services.featuredBadge">Most Popular</span>
-      <span class="card-planet">Complete</span><span class="card-icon">🔮</span>
+  <div class="offer-banner reveal">
+    <div class="offer-icon">🎉</div>
+    <div class="offer-text">
+      <strong>"शुभारंभ ऑफर" — Launch Offer</strong>
+      <span>First 10 clients get a FREE Kundali Chart Reading. Limited spots available!</span>
+    </div>
+    <div class="offer-countdown">
+      <div class="count-unit"><span class="count-num" id="cdH">00</span><span class="count-label">Hrs</span></div>
+      <span class="count-sep">:</span>
+      <div class="count-unit"><span class="count-num" id="cdM">00</span><span class="count-label">Min</span></div>
+      <span class="count-sep">:</span>
+      <div class="count-unit"><span class="count-num" id="cdS">00</span><span class="count-label">Sec</span></div>
+    </div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card featured-card reveal">
+      <div class="featured-badge" data-i18n="services.featuredBadge">Most Popular</div>
+      <span class="card-icon">🔮</span>
       <div class="card-title" data-i18n="services.complete.title">Complete Kundali Chart Reading</div>
-      <div class="card-desc"  data-i18n="services.complete.desc">A comprehensive deep-dive into your birth chart revealing life's path, planetary yogas, and karmic patterns.</div>
+      <div class="card-desc" data-i18n="services.complete.desc">A comprehensive deep-dive into your birth chart revealing life's path, planetary yogas, and karmic patterns.</div>
       <ul class="card-questions">
         <li data-i18n="services.complete.q1">Life purpose &amp; destiny path</li>
         <li data-i18n="services.complete.q2">Career &amp; financial prospects</li>
@@ -438,221 +458,329 @@ document.querySelectorAll('.lang-btn').forEach(function(btn){
         <li data-i18n="services.complete.q4">Health &amp; wellbeing insights</li>
         <li data-i18n="services.complete.q5">Rajyog &amp; powerful planetary combinations</li>
       </ul>
-      <div class="card-price">
-        <div><div class="price">₹299</div><div class="price-label">Full Reading</div></div>
-        <button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want to book Complete Kundali Reading')">Book Now</button>
-      </div>
+      <div class="card-price"><div><div class="price">₹299</div><div class="price-label" data-i18n="complete.priceLabel">Full Reading</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Complete Kundali Chart Reading')">Book Now</button></div>
     </div>
-
-    <div class="service-card">
+    <div class="service-card reveal" style="transition-delay:.1s">
       <span class="card-planet" data-i18n="services.marriage.planet">Marriage</span><span class="card-icon">💍</span>
       <div class="card-title" data-i18n="services.marriage.title">Marriage &amp; Kundali Matching</div>
-      <div class="card-desc"  data-i18n="services.marriage.desc">Beyond gun milan — deep compatibility analysis for a lasting, joyful union.</div>
+      <div class="card-desc" data-i18n="services.marriage.desc">Beyond gun milan — deep compatibility analysis for a lasting, joyful union.</div>
       <ul class="card-questions">
         <li data-i18n="services.marriage.q1">When will I get married?</li>
         <li data-i18n="services.marriage.q2">Love marriage or arranged?</li>
         <li data-i18n="services.marriage.q3">Will the relationship be stable?</li>
         <li data-i18n="services.marriage.q4">Risk of conflict or separation?</li>
       </ul>
-      <div class="card-price">
-        <div><div class="price">₹199</div><div class="price-label" data-i18n="services.marriage.priceLabel">Per Reading</div></div>
-        <button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Marriage Kundali Matching reading')">Book Now</button>
-      </div>
+      <div class="card-price"><div><div class="price">₹199</div><div class="price-label" data-i18n="services.marriage.priceLabel">Per Reading</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Marriage Kundali Matching reading')">Book Now</button></div>
     </div>
-
-    <div class="service-card">
+    <div class="service-card reveal" style="transition-delay:.2s">
       <span class="card-planet" data-i18n="services.rajyog.planet">Rajyog</span><span class="card-icon">👑</span>
       <div class="card-title" data-i18n="services.rajyog.title">Know Your Rajyog</div>
-      <div class="card-desc"  data-i18n="services.rajyog.desc">Identify the royal yogas hidden in your chart and understand when they activate for peak success.</div>
+      <div class="card-desc" data-i18n="services.rajyog.desc">Identify the royal yogas hidden in your chart and understand when they activate for peak success.</div>
       <ul class="card-questions">
         <li data-i18n="services.rajyog.q1">Which Rajyogs are in your chart?</li>
         <li data-i18n="services.rajyog.q2">When do they activate?</li>
         <li data-i18n="services.rajyog.q3">How to maximize their power?</li>
       </ul>
-      <div class="card-price">
-        <div><div class="price">₹99</div><div class="price-label">Special Offer</div></div>
-        <button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want to Know My Rajyog')">Book Now</button>
-      </div>
+      <div class="card-price"><div><div class="price">₹99</div><div class="price-label">Special Offer</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want to Know My Rajyog')">Book Now</button></div>
     </div>
-
-    <div class="service-card">
+    <div class="service-card reveal" style="transition-delay:.1s">
       <span class="card-planet" data-i18n="services.love.planet">Love</span><span class="card-icon">❤️</span>
       <div class="card-title" data-i18n="services.love.title">Love &amp; Relationship Reading</div>
-      <div class="card-desc"  data-i18n="services.love.desc">Clarity on your love life — whether your relationship has a future and what the cosmos says about your person.</div>
+      <div class="card-desc" data-i18n="services.love.desc">Clarity on your love life — whether your relationship has a future and what the cosmos says about your person.</div>
       <ul class="card-questions">
         <li data-i18n="services.love.q1">Marriage or breakup in your future?</li>
         <li data-i18n="services.love.q2">Is it true love or timepass?</li>
         <li data-i18n="services.love.q3">Astrological compatibility deep-dive</li>
       </ul>
-      <div class="card-price">
-        <div><div class="price">₹99</div><div class="price-label">On Call</div></div>
-        <button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Love Relationship reading')">Book Now</button>
-      </div>
+      <div class="card-price"><div><div class="price">₹99</div><div class="price-label">On Call</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Love Relationship reading')">Book Now</button></div>
     </div>
-
-    <div class="service-card">
+    <div class="service-card reveal" style="transition-delay:.2s">
       <span class="card-planet" data-i18n="services.career.planet">Career</span><span class="card-icon">💼</span>
       <div class="card-title" data-i18n="services.career.title">Career &amp; Education Guidance</div>
-      <div class="card-desc"  data-i18n="services.career.desc">Find your true calling. Align your career choices with your planetary strengths for guaranteed success.</div>
+      <div class="card-desc" data-i18n="services.career.desc">Find your true calling. Align your career choices with your planetary strengths for guaranteed success.</div>
       <ul class="card-questions">
         <li data-i18n="services.career.q1">Which field suits your chart?</li>
         <li data-i18n="services.career.q2">Medical, Engineering, Arts or Commerce?</li>
         <li data-i18n="services.career.q3">When will success come?</li>
       </ul>
-      <div class="card-price">
-        <div><div class="price">₹99</div><div class="price-label">On Call</div></div>
-        <button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Career Guidance reading')">Book Now</button>
-      </div>
+      <div class="card-price"><div><div class="price">₹99</div><div class="price-label" data-i18n="services.career.priceLabel">Student Offer</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Career Guidance reading')">Book Now</button></div>
     </div>
-
-    <div class="service-card">
+    <div class="service-card reveal" style="transition-delay:.1s">
       <span class="card-planet" data-i18n="services.family.planet">Family</span><span class="card-icon">🏡</span>
       <div class="card-title" data-i18n="services.family.title">Family Relationship Reading</div>
-      <div class="card-desc"  data-i18n="services.family.desc">Restore harmony in your home. Understand the astrological roots of family tensions and find lasting peace.</div>
+      <div class="card-desc" data-i18n="services.family.desc">Restore harmony in your home. Understand the astrological roots of family tensions and find lasting peace.</div>
       <ul class="card-questions">
         <li data-i18n="services.family.q1">Why do misunderstandings arise?</li>
         <li data-i18n="services.family.q2">How to strengthen family bonds?</li>
         <li data-i18n="services.family.q3">Karmic patterns in relationships</li>
       </ul>
-      <div class="card-price">
-        <div><div class="price">₹99</div><div class="price-label">On Call</div></div>
-        <button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Family Relationship reading')">Book Now</button>
-      </div>
+      <div class="card-price"><div><div class="price">₹99</div><div class="price-label" data-i18n="services.family.priceLabel">On Call</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Family Relationship reading')">Book Now</button></div>
     </div>
-
-    <div class="service-card">
+    <div class="service-card reveal" style="transition-delay:.2s">
       <span class="card-planet" data-i18n="services.self.planet">Self</span><span class="card-icon">🌟</span>
       <div class="card-title" data-i18n="services.self.title">Know Yourself Reading</div>
-      <div class="card-desc"  data-i18n="services.self.desc">Discover your hidden strengths, life purpose, and true talents written in the stars at the moment of your birth.</div>
+      <div class="card-desc" data-i18n="services.self.desc">Discover your hidden strengths, life purpose, and true talents written in the stars at the moment of your birth.</div>
       <ul class="card-questions">
         <li data-i18n="services.self.q1">What is your true purpose?</li>
         <li data-i18n="services.self.q2">Why do relationships not last?</li>
         <li data-i18n="services.self.q3">Hidden talents &amp; potential</li>
       </ul>
-      <div class="card-price">
-        <div><div class="price">₹99</div><div class="price-label" data-i18n="services.self.priceLabel">Self Discovery</div></div>
-        <button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Know Yourself reading')">Book Now</button>
-      </div>
+      <div class="card-price"><div><div class="price">₹99</div><div class="price-label" data-i18n="services.self.priceLabel">Self Discovery</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Know Yourself reading')">Book Now</button></div>
     </div>
-
   </div>
 </section>
 
-<!-- ══════════ ABOUT ══════════ -->
+<div class="divider"><div class="divider-line"></div><div class="divider-symbol">✦</div><div class="divider-line r"></div></div>
+
+<!-- ABOUT -->
 <section class="about-section" id="about">
   <div class="about-inner">
-    <div>
+    <div class="reveal-left">
       <div class="about-portrait">
-        <svg style="position:absolute;inset:0;opacity:0.05" viewBox="0 0 200 280" fill="none">
-          <circle cx="100" cy="140" r="95" stroke="#C9A84C" stroke-width="0.5"/>
-          <circle cx="100" cy="140" r="65" stroke="#C9A84C" stroke-width="0.5"/>
-          <line x1="100" y1="10"  x2="100" y2="270" stroke="#C9A84C" stroke-width="0.3"/>
-          <line x1="5"   y1="140" x2="195" y2="140" stroke="#C9A84C" stroke-width="0.3"/>
-        </svg>
-        <span class="portrait-initial">NR</span>
-        <span style="font-size:0.68rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase">Vedic Practitioner</span>
+        <img src="revan.jpg" alt="Nayan (Revan)" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="about-portrait-inner" style="display:none">
+          <svg style="position:absolute;inset:0;opacity:0.05" viewBox="0 0 200 280" fill="none"><circle cx="100" cy="140" r="95" stroke="#C9A84C" stroke-width="0.5"/><circle cx="100" cy="140" r="65" stroke="#C9A84C" stroke-width="0.5"/><line x1="100" y1="10" x2="100" y2="270" stroke="#C9A84C" stroke-width="0.3"/><line x1="5" y1="140" x2="195" y2="140" stroke="#C9A84C" stroke-width="0.3"/></svg>
+          <span class="portrait-initial">NR</span>
+          <span style="font-size:0.68rem;color:var(--muted);letter-spacing:0.15em;text-transform:uppercase">Vedic Practitioner</span>
+        </div>
       </div>
     </div>
-    <div>
+    <div class="reveal-right">
       <div class="section-label" style="text-align:left" data-i18n="about.guideLabel">Your Guide</div>
       <div class="about-name">Nayan (Revan)</div>
       <div class="about-title-tag">Modern Vedic Astrology Practitioner</div>
-      <div class="about-bio">
+      <div class="about-bio" data-i18n="about.bio">
         <p>With a deep-rooted passion for Vedic wisdom and a modern, analytical approach, Nayan bridges the ancient science of Jyotish with the questions of contemporary life.</p>
         <p>Every reading is personal, precise, and empowering — not just predictions, but a map to help you make better decisions with cosmic clarity.</p>
       </div>
+      <div class="about-stats">
+        <div class="about-stat"><span class="about-stat-num">500+</span><span class="about-stat-label">Readings Done</span></div>
+        <div class="about-stat"><span class="about-stat-num">3</span><span class="about-stat-label">Languages</span></div>
+        <div class="about-stat"><span class="about-stat-num">5★</span><span class="about-stat-label">Client Rating</span></div>
+        <div class="about-stat"><span class="about-stat-num">On-Call</span><span class="about-stat-label">Availability</span></div>
+      </div>
       <div class="contact-detail"><span>WhatsApp</span><span>+91 8080928763</span></div>
-      <div class="contact-detail"><span>Method</span><span>On-call consultation</span></div>
-      <div class="contact-detail"><span>Language</span><span>Marathi · Hindi · English</span></div>
+      <div class="contact-detail"><span data-i18n="contact.method">Method</span><span data-i18n="contact.methodVal">On-call consultation</span></div>
+      <div class="contact-detail"><span data-i18n="contact.language">Language</span><span data-i18n="contact.languageVal">Marathi · Hindi · English</span></div>
       <div style="margin-top:1.5rem">
-        <button class="btn-primary" onclick="window.open('https://wa.me/918080928763?text=I want to book an appointment')">Book on WhatsApp</button>
+        <button class="btn-primary" onclick="window.open('https://wa.me/918080928763?text=I want to book an appointment')" data-i18n="about.bookBtn">Book on WhatsApp</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ TESTIMONIALS ══════════ -->
+<div class="divider"><div class="divider-line"></div><div class="divider-symbol">✦</div><div class="divider-line r"></div></div>
+
+<!-- TESTIMONIALS -->
 <section class="testimonial-section">
-  <div class="section-label" data-i18n="testimonials.label">Client Experiences</div>
-  <div class="section-title" data-i18n="testimonials.title">What the Stars Revealed</div>
-  <div class="section-sub" style="margin-bottom:2rem" data-i18n="testimonials.sub">Real stories from those who found clarity</div>
+  <div class="section-label reveal" data-i18n="testimonials.label">Client Experiences</div>
+  <div class="section-title reveal" data-i18n="testimonials.title">What the Stars Revealed</div>
+  <div class="section-sub reveal" style="margin-bottom:2rem" data-i18n="testimonials.sub">Real stories from those who found clarity</div>
   <div class="testimonials">
-    <div class="testimonial"><div class="big-quote">"</div><div class="testimonial-stars">★★★★★</div><div class="testimonial-quote">Nayan's reading about my marriage timing was spot on. I was confused for years and a single session gave me complete clarity and peace of mind.</div><div class="testimonial-author">— Priya S., Pune</div></div>
-    <div class="testimonial"><div class="big-quote">"</div><div class="testimonial-stars">★★★★★</div><div class="testimonial-quote">The career guidance reading helped me choose engineering over commerce. Best decision of my life. My chart actually showed my technical aptitude!</div><div class="testimonial-author">— Rohit M., Aurangabad</div></div>
-    <div class="testimonial"><div class="big-quote">"</div><div class="testimonial-stars">★★★★★</div><div class="testimonial-quote">I was skeptical at first, but the Rajyog reading was incredibly detailed. Nayan explained the planetary combinations in simple, modern language.</div><div class="testimonial-author">— Ananya K., Mumbai</div></div>
+    <div class="testimonial reveal">
+      <div class="big-quote">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote" data-i18n="testimonials.1.quote">Nayan's reading about my marriage timing was spot on. I was confused for years and a single session gave me complete clarity and peace of mind.</div>
+      <div class="testimonial-footer"><div class="testimonial-avatar">PS</div><div class="testimonial-author" data-i18n="testimonials.1.author">— Priya S., Pune</div></div>
+    </div>
+    <div class="testimonial reveal" style="transition-delay:.15s">
+      <div class="big-quote">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote" data-i18n="testimonials.2.quote">The career guidance reading helped me choose engineering over commerce. Best decision of my life. My chart actually showed my technical aptitude!</div>
+      <div class="testimonial-footer"><div class="testimonial-avatar">RM</div><div class="testimonial-author" data-i18n="testimonials.2.author">— Rohit M., Aurangabad</div></div>
+    </div>
+    <div class="testimonial reveal" style="transition-delay:.3s">
+      <div class="big-quote">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-quote" data-i18n="testimonials.3.quote">I was skeptical at first, but the Rajyog reading was incredibly detailed. Nayan explained the planetary combinations in simple, modern language.</div>
+      <div class="testimonial-footer"><div class="testimonial-avatar">AK</div><div class="testimonial-author" data-i18n="testimonials.3.author">— Ananya K., Mumbai</div></div>
+    </div>
   </div>
 </section>
 
-<!-- ══════════ CTA ══════════ -->
+<div class="divider"><div class="divider-line"></div><div class="divider-symbol">✦</div><div class="divider-line r"></div></div>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-label reveal">Questions &amp; Answers</div>
+  <div class="section-title reveal">Frequently Asked</div>
+  <div class="section-sub reveal" style="margin-bottom:2.5rem">Everything you need to know before your reading</div>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">What information do I need to provide for a reading? <span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">You'll need your full date of birth, exact birth time (as accurate as possible), and birthplace. The more precise your birth time, the more accurate your reading will be.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">How long does a session take? <span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">A typical on-call consultation lasts 20–40 minutes depending on the service. Complete Kundali readings may take up to an hour. Message readings are usually responded to within 24 hours.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">In which languages can I get a reading? <span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">All readings are available in Marathi, Hindi, and English. You can choose your preferred language when booking.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">How do I book an appointment? <span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">You can book via WhatsApp (+91 8080928763), by clicking the "Book Now" button on any service card, or through our online booking form. We'll confirm your slot and contact you at the scheduled time.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">Is Vedic astrology different from Western astrology? <span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes! Vedic (Jyotish) astrology is based on the sidereal zodiac. It uses the ascendant (Lagna) system and places special emphasis on the Moon sign, planetary periods (Dashas), and Yogas — combinations that reveal life events with remarkable accuracy.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-question" onclick="toggleFaq(this)">What payment methods are accepted? <span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">We accept UPI (Google Pay, PhonePe, Paytm), bank transfer, and cash. Payment details will be shared at the time of booking. Payment is due before the session begins.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-symbol">✦</div><div class="divider-line r"></div></div>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="section-label reveal">Sacred Moments</div>
+  <div class="section-title reveal">Our Cosmic Gallery</div>
+  <div class="section-sub reveal">Glimpses of the journey through the stars</div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal" onclick="openLightbox(0)"><img src="1.jpg.jpeg" alt="Astrology reading 1" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+    <div class="gallery-item reveal" style="transition-delay:.05s" onclick="openLightbox(1)"><img src="2.jpg.jpeg" alt="Astrology reading 2" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+    <div class="gallery-item reveal" style="transition-delay:.1s" onclick="openLightbox(2)"><img src="3.jpg.jpeg" alt="Astrology reading 3" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+    <div class="gallery-item reveal" style="transition-delay:.15s" onclick="openLightbox(3)"><img src="4.jpg.jpeg" alt="Astrology reading 4" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+    <div class="gallery-item reveal" style="transition-delay:.2s" onclick="openLightbox(4)"><img src="5.jpg.jpeg" alt="Astrology reading 5" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+    <div class="gallery-item reveal" style="transition-delay:.25s" onclick="openLightbox(5)"><img src="6.jpg.jpeg" alt="Astrology reading 6" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+    <div class="gallery-item reveal" style="transition-delay:.3s" onclick="openLightbox(6)"><img src="7.jpg.jpeg" alt="Astrology reading 7" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+    <div class="gallery-item reveal" style="transition-delay:.35s" onclick="openLightbox(7)"><img src="8.jpg.jpeg" alt="Astrology reading 8" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+    <div class="gallery-item reveal" style="transition-delay:.4s" onclick="openLightbox(8)"><img src="9.jpg.jpeg" alt="Astrology reading 9" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+    <div class="gallery-item reveal" style="transition-delay:.45s" onclick="openLightbox(9)"><img src="10.jpg.jpeg" alt="Astrology reading 10" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+    <div class="gallery-item reveal" style="transition-delay:.5s" onclick="openLightbox(10)"><img src="11.jpg.jpeg" alt="Astrology reading 11" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+    <div class="gallery-item reveal" style="transition-delay:.55s" onclick="openLightbox(11)"><img src="12.jpg.jpeg" alt="Astrology reading 12" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-nav lightbox-prev" onclick="changeLightbox(-1)">‹</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt=""/>
+  <button class="lightbox-nav lightbox-next" onclick="changeLightbox(1)">›</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-symbol">✦</div><div class="divider-line r"></div></div>
+
+<!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="cta-bg"></div>
   <div style="position:relative;z-index:1">
-    <div class="section-label" data-i18n="cta.label">Begin Your Journey</div>
-    <div class="cta-title" data-i18n="cta.title">Your Stars Are Waiting</div>
-    <div class="cta-sub"   data-i18n="cta.sub">Book a consultation and receive personalized cosmic guidance</div>
-    <div class="cta-contact">
-      <div class="cta-item">
-        <div class="cta-item-label" data-i18n="cta.whatsappLabel">WhatsApp / Call</div>
-        <div class="cta-item-val">+91 8080928763</div>
-      </div>
+    <div class="section-label reveal" data-i18n="cta.label">Begin Your Journey</div>
+    <div class="cta-title reveal" data-i18n="cta.title">Your Stars Are Waiting</div>
+    <div class="cta-sub reveal" data-i18n="cta.sub">Book a consultation and receive personalized cosmic guidance</div>
+    <div class="cta-contact reveal">
+      <div class="cta-item"><div class="cta-item-label" data-i18n="cta.whatsappLabel">WhatsApp / Call</div><div class="cta-item-val">+91 8080928763</div></div>
       <div class="cta-divider"></div>
-      <div class="cta-item">
-        <div class="cta-item-label" data-i18n="cta.availabilityLabel">Availability</div>
-        <div class="cta-item-val">Mon – Sat, 10am – 8pm</div>
-      </div>
+      <div class="cta-item"><div class="cta-item-label" data-i18n="cta.availabilityLabel">Availability</div><div class="cta-item-val">Mon – Sat, 10am – 8pm</div></div>
     </div>
-    <button class="btn-primary" style="font-size:0.82rem;padding:0.95rem 2.2rem" data-i18n="cta.button"
-            onclick="window.open('https://wa.me/918080928763?text=Namaste! I want to book an astrology consultation.')">
-      Message on WhatsApp Now
-    </button>
-    
-    <!-- New appointment booking link -->
-    <div class="booking-link" data-i18n="booking.title"></div>
+    <div class="reveal">
+      <button class="btn-primary" style="font-size:0.82rem;padding:0.95rem 2.4rem" data-i18n="cta.button" onclick="window.open('https://wa.me/918080928763?text=Namaste! I want to book an astrology consultation.')">💬 Message on WhatsApp Now</button>
+    </div>
+    <div class="cta-methods reveal" style="transition-delay:.2s">
+      <div class="cta-method"><span style="color:var(--gold)">📞</span> On-Call Consultation</div>
+      <div class="cta-method"><span style="color:var(--gold)">💬</span> Message Reading</div>
+      <div class="cta-method"><span style="color:var(--gold)">🎥</span> Video Call (Coming Soon)</div>
+    </div>
+    <div class="booking-link reveal" data-i18n="booking.title"></div>
   </div>
 </section>
 
-<!-- Additional CSS for booking link -->
-<style>
-.booking-link {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  padding: 1rem;
-  border-top: 1px solid var(--card-border);
-}
-.booking-link a {
-  color: var(--gold);
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.25s;
-}
-.booking-link a:hover {
-  text-decoration: underline;
-  color: var(--gold-light);
-}
-html.light .booking-link a:hover {
-  color: var(--gold-dark);
-}
-</style>
-
-<!-- ══════════ FOOTER ══════════ -->
+<!-- FOOTER -->
 <footer>
-  <img class="footer-logo-img" src="1776691625318_image.png" alt="AstroVedic Mind" onerror="this.style.display='none'"/>
-  <div class="footer-text" style="margin-bottom:0.3rem">Nayan (Revan) · Modern Vedic Astrology Practitioner</div>
-  <div class="footer-text">✦ &nbsp; Aurangabad, Maharashtra &nbsp; ✦ &nbsp; +91 8080928763 &nbsp; ✦</div>
+  <img class="footer-logo-img" src="revan-removebg-preview.png" alt="AstroVedic Mind" onerror="this.style.display='none'"/>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-text" data-i18n="footer.bio1">Nayan (Revan) · Modern Vedic Astrology Practitioner</div>
+  <div class="footer-text" data-i18n="footer.bio2">✦  Aurangabad, Maharashtra  ✦  +91 8080928763  ✦</div>
+  <div class="footer-bottom">© 2025 AstroVedic Mind · All Rights Reserved · Made with ✨ &amp; Cosmic Clarity</div>
 </footer>
+
+<button class="wa-float" onclick="window.open('https://wa.me/918080928763?text=Namaste! I want to book an astrology consultation.')" aria-label="WhatsApp">💬</button>
 
 <script>
 (function(){
   var sf=document.getElementById('starfield');
-  for(var i=0;i<100;i++){
+  for(var i=0;i<120;i++){
     var s=document.createElement('div');s.className='star';
-    var sz=Math.random()*2+0.5;
-    s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*100)+'%;top:'+(Math.random()*100)+'%;--d:'+(Math.random()*4+2).toFixed(1)+'s;--delay:'+(Math.random()*5).toFixed(1)+'s';
+    var sz=Math.random()*2.2+0.4;
+    s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*100)+'%;top:'+(Math.random()*100)+'%;--d:'+(Math.random()*5+2).toFixed(1)+'s;--delay:'+(Math.random()*6).toFixed(1)+'s';
     sf.appendChild(s);
   }
 })();
+
+var theme=localStorage.getItem('astrovedicTheme')||'dark';
+if(theme==='light')document.documentElement.classList.add('light');
+document.getElementById('themeBtn').addEventListener('click',function(){
+  document.documentElement.classList.toggle('light');
+  localStorage.setItem('astrovedicTheme',document.documentElement.classList.contains('light')?'light':'dark');
+});
+
+var ham=document.getElementById('hamburger');
+var drawer=document.getElementById('mobileDrawer');
+ham.addEventListener('click',function(){
+  ham.classList.toggle('open');drawer.classList.toggle('open');
+  document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+});
+function closeDrawer(){ham.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}
+
+window.addEventListener('scroll',function(){
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>40);
+  var pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+  document.getElementById('progressBar').style.width=pct+'%';
+},{passive:true});
+
+var revealEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(function(el){obs.observe(el)});
+
+function updateCountdown(){
+  var now=new Date();
+  var midnight=new Date(now);midnight.setHours(24,0,0,0);
+  var diff=midnight-now;
+  document.getElementById('cdH').textContent=String(Math.floor(diff/3600000)).padStart(2,'0');
+  document.getElementById('cdM').textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+  document.getElementById('cdS').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+}
+updateCountdown();setInterval(updateCountdown,1000);
+
+function toggleFaq(btn){
+  var item=btn.closest('.faq-item');
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+  if(!isOpen)item.classList.add('open');
+}
+
+var galleryImages=['1.jpg.jpeg','2.jpg.jpeg','3.jpg.jpeg','4.jpg.jpeg','5.jpg.jpeg','6.jpg.jpeg','7.jpg.jpeg','8.jpg.jpeg','9.jpg.jpeg','10.jpg.jpeg','11.jpg.jpeg','12.jpg.jpeg'];
+var currentLbIdx=0;
+function openLightbox(idx){
+  currentLbIdx=idx;
+  document.getElementById('lightboxImg').src=galleryImages[idx];
+  document.getElementById('lightboxCounter').textContent=(idx+1)+' / '+galleryImages.length;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+function changeLightbox(dir){currentLbIdx=(currentLbIdx+dir+galleryImages.length)%galleryImages.length;openLightbox(currentLbIdx);}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox()});
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.key==='Escape')closeLightbox();
+  if(e.key==='ArrowLeft')changeLightbox(-1);
+  if(e.key==='ArrowRight')changeLightbox(1);
+});
 </script>
 <script src="translations.js"></script>
 <script>
