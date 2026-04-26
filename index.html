@@ -41,10 +41,7 @@ html{scroll-behavior:smooth}
 body{background:var(--deep);color:var(--text);font-family:'Jost',sans-serif;overflow-x:hidden;transition:background-color var(--t) var(--ease),color var(--t) var(--ease)}
 body.lang-hi,body.lang-mr{font-family:'Noto Sans Devanagari','Jost',sans-serif;font-size:0.96em;line-height:1.65}
 
-.announce-bar{background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark));color:var(--deep);text-align:center;padding:0.55rem 3rem;font-size:0.72rem;letter-spacing:0.12em;font-weight:500;text-transform:uppercase;position:relative;z-index:300;display:flex;align-items:center;justify-content:center;gap:0.6rem;flex-wrap:wrap}
-.announce-bar a{color:var(--deep);font-weight:700;border-bottom:1px solid rgba(0,0,0,0.3)}
-.announce-close{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--deep);cursor:pointer;font-size:1rem;opacity:0.6;padding:0.2rem}
-.announce-close:hover{opacity:1}
+
 
 .starfield{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .star{position:absolute;background:var(--star-color);border-radius:50%;animation:twinkle var(--d,3s) var(--delay,0s) infinite alternate;transition:background-color var(--t) var(--ease)}
@@ -137,51 +134,47 @@ html.light .icon-sun{display:none}html.light .icon-moon{display:block}
 .reveal-right{opacity:0;transform:translateX(28px);transition:opacity 0.7s var(--ease),transform 0.7s var(--ease)}
 .reveal-right.visible{opacity:1;transform:translateX(0)}
 
-.offer-banner{background:linear-gradient(135deg,rgba(201,168,76,0.08),rgba(201,168,76,0.03));border:1px solid rgba(201,168,76,0.3);border-radius:var(--radius);padding:1.2rem 1.5rem;max-width:900px;margin:0 auto 3rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;position:relative}
-.offer-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
-.offer-icon{font-size:2rem;flex-shrink:0}
-.offer-text{flex:1}
-.offer-text strong{font-family:'Cinzel Decorative',serif;font-size:0.85rem;color:var(--gold);display:block;margin-bottom:0.2rem}
-.offer-text span{font-size:0.8rem;color:var(--muted);line-height:1.5}
-.offer-countdown{display:flex;gap:0.5rem;align-items:center;flex-shrink:0;font-family:'Cinzel Decorative',serif}
-.count-unit{text-align:center}
-.count-num{background:var(--surface2);border:1px solid var(--card-border);font-size:1.1rem;color:var(--gold);padding:0.3rem 0.6rem;border-radius:3px;display:block;min-width:38px}
-.count-label{font-size:0.5rem;color:var(--muted);letter-spacing:0.1em;display:block;margin-top:0.2rem;text-transform:uppercase}
-.count-sep{color:var(--gold);font-size:1.2rem;padding-bottom:0.4rem}
+
 
 .planets-section{padding:2rem 1rem 1rem;position:relative;z-index:1}
-.planets-strip{display:grid;grid-template-columns:repeat(7,1fr);max-width:900px;margin:0 auto}
-.planet-item{text-align:center;padding:1.5rem 0.5rem;border-right:1px solid rgba(201,168,76,0.08);transition:background 0.3s;cursor:default}
+.planets-strip{display:grid;grid-template-columns:repeat(9,1fr);max-width:1100px;margin:0 auto}
+.planet-item{text-align:center;padding:1.5rem 0.4rem;border-right:1px solid rgba(201,168,76,0.08);transition:background 0.3s;cursor:default}
 .planet-item:last-child{border-right:none}
 .planet-item:hover{background:rgba(201,168,76,0.04)}
-.planet-symbol{font-size:2rem;margin-bottom:0.4rem;display:block;transition:transform 0.3s}
+.planet-symbol{font-size:1.8rem;margin-bottom:0.4rem;display:block;transition:transform 0.3s}
 .planet-item:hover .planet-symbol{transform:scale(1.2) translateY(-2px)}
-.planet-name{font-family:'Cinzel Decorative',serif;font-size:0.52rem;color:var(--gold);letter-spacing:0.1em;display:block;margin-bottom:0.25rem}
-.planet-domain{font-size:0.62rem;color:var(--muted);line-height:1.3}
+.planet-name{font-family:'Cinzel Decorative',serif;font-size:0.48rem;color:var(--gold);letter-spacing:0.1em;display:block;margin-bottom:0.25rem}
+.planet-domain{font-size:0.58rem;color:var(--muted);line-height:1.3}
+.rahu-ketu{border-left:1px solid rgba(201,168,76,0.2);background:rgba(201,168,76,0.02)}
 
-.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:1.4rem;max-width:1120px;margin:0 auto}
-.service-card{background:var(--surface);border:1px solid var(--card-border);padding:2rem;position:relative;overflow:hidden;transition:all 0.4s var(--ease);border-radius:var(--radius)}
-.service-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,rgba(201,168,76,0.06),transparent 60%);opacity:0;transition:opacity 0.4s}
-.service-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.4s}
-.service-card:hover{border-color:var(--card-border-hover);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.3)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:1.6rem;max-width:1180px;margin:0 auto}
+.service-card{background:var(--surface);border:1px solid var(--card-border);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:all 0.4s var(--ease);border-radius:var(--radius)}
+.service-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,rgba(201,168,76,0.06),transparent 60%);opacity:0;transition:opacity 0.4s;z-index:0}
+.service-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.4s;z-index:1}
+.service-card:hover{border-color:var(--card-border-hover);transform:translateY(-5px);box-shadow:0 24px 60px rgba(0,0,0,0.35)}
 .service-card:hover::before{opacity:1}
 .service-card:hover::after{opacity:1}
-.card-icon{font-size:1.8rem;margin-bottom:1rem;display:block}
-.card-planet{position:absolute;top:1rem;right:1rem;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);opacity:0.5;border:1px solid rgba(201,168,76,0.2);padding:0.15rem 0.5rem;border-radius:10px}
-.card-title{font-family:'Cinzel Decorative',serif;font-size:0.88rem;color:var(--text);margin-bottom:0.7rem;line-height:1.45}
-.card-desc{font-size:0.82rem;color:var(--muted);line-height:1.7;margin-bottom:1.2rem}
-.card-questions{list-style:none;margin-bottom:1.2rem}
-.card-questions li{font-size:0.76rem;color:var(--muted);padding:0.3rem 0 0.3rem 1.2rem;position:relative;line-height:1.4;border-bottom:1px solid rgba(201,168,76,0.05)}
+/* Card image */
+.card-img-wrap{width:100%;aspect-ratio:16/9;overflow:hidden;flex-shrink:0;position:relative}
+.card-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.55s var(--ease)}
+.service-card:hover .card-img-wrap img{transform:scale(1.06)}
+/* Card body */
+.card-body{padding:1.6rem;display:flex;flex-direction:column;flex:1;position:relative;z-index:1}
+.card-icon{font-size:1.6rem;margin-bottom:0.8rem;display:block}
+.card-planet{position:absolute;top:1rem;right:1rem;font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);opacity:0.55;border:1px solid rgba(201,168,76,0.2);padding:0.15rem 0.5rem;border-radius:10px}
+.card-title{font-family:'Cinzel Decorative',serif;font-size:0.85rem;color:var(--text);margin-bottom:0.65rem;line-height:1.45}
+.card-desc{font-size:0.8rem;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.card-questions{list-style:none;margin-bottom:1.2rem;flex:1}
+.card-questions li{font-size:0.74rem;color:var(--muted);padding:0.28rem 0 0.28rem 1.2rem;position:relative;line-height:1.4;border-bottom:1px solid rgba(201,168,76,0.05)}
 .card-questions li:last-child{border-bottom:none}
-.card-questions li::before{content:'diamond';font-family:serif;position:absolute;left:0;color:var(--gold);font-size:0.4rem;top:0.55rem}
-.card-questions li::before{content:'◆';font-family:inherit}
-.card-price{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--card-border);padding-top:1rem;gap:0.5rem}
+.card-questions li::before{content:'◆';position:absolute;left:0;color:var(--gold);font-size:0.38rem;top:0.56rem}
+.card-price{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--card-border);padding-top:1rem;gap:0.5rem;margin-top:auto}
 .price{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);font-weight:600;line-height:1}
-.price-label{font-size:0.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;margin-top:0.2rem}
+.price-label{font-size:0.56rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;margin-top:0.2rem}
 .book-btn{background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold);padding:0.5rem 1.1rem;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;border-radius:var(--radius);transition:all 0.25s;white-space:nowrap;flex-shrink:0}
 .book-btn:hover{background:var(--gold);color:var(--deep)}
 .featured-card{background:var(--featured-bg)!important;border:1px solid rgba(201,168,76,0.35)!important}
-.featured-badge{display:inline-block;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--deep);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;padding:0.22rem 0.7rem;margin-bottom:0.9rem;font-weight:600;border-radius:1px}
+.featured-badge{display:inline-block;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--deep);font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;padding:0.22rem 0.7rem;margin-bottom:0.7rem;font-weight:600;border-radius:1px}
 
 .about-section{background:var(--mid);padding:5rem 1.5rem;position:relative;z-index:1;transition:background var(--t) var(--ease)}
 .about-inner{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:center}
@@ -239,25 +232,19 @@ html.light .icon-sun{display:none}html.light .icon-moon{display:block}
 .booking-link a{color:var(--gold);font-weight:500;text-decoration:none;transition:color 0.25s}
 .booking-link a:hover{text-decoration:underline;color:var(--gold-light)}
 
-.gallery-section{padding:5rem 1.5rem;position:relative;z-index:1}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:1.2rem;max-width:1120px;margin:0 auto}
-.gallery-item{background:var(--surface);border:1px solid var(--card-border);border-radius:var(--radius);overflow:hidden;position:relative;transition:all 0.4s var(--ease);aspect-ratio:4/3;cursor:pointer}
-.gallery-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);opacity:0;transition:opacity 0.3s;font-size:1.5rem}
-.gallery-item:hover{border-color:var(--card-border-hover);transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,0.35)}
-.gallery-item:hover .gallery-overlay{opacity:1}
-.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s var(--ease)}
-.gallery-item:hover img{transform:scale(1.08)}
+/* QR Code Section */
+.qr-section{display:flex;flex-direction:column;align-items:center;gap:0.6rem;margin:2.5rem auto 0;max-width:260px}
+.qr-label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold)}
+.qr-code-img{width:180px;height:180px;border:1px solid var(--card-border);border-radius:var(--radius);padding:0.6rem;background:var(--surface);box-shadow:0 8px 30px rgba(0,0,0,0.25);transition:border-color 0.3s,box-shadow 0.3s}
+.qr-code-img:hover{border-color:var(--card-border-hover);box-shadow:0 12px 40px rgba(201,168,76,0.15)}
+.qr-caption{font-size:0.72rem;color:var(--muted);text-align:center;line-height:1.5;max-width:220px}
+html.light .qr-code-img{box-shadow:0 8px 30px rgba(0,0,0,0.1)}
+@media(max-width:600px){
+  .qr-code-img{width:150px;height:150px}
+  .qr-section{margin-top:2rem}
+}
 
-.lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.93);align-items:center;justify-content:center;padding:1rem}
-.lightbox.open{display:flex}
-.lightbox-img{max-width:90vw;max-height:90vh;object-fit:contain;border:1px solid var(--card-border);border-radius:var(--radius)}
-.lightbox-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:1px solid var(--gold);color:var(--gold);width:40px;height:40px;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.25s}
-.lightbox-close:hover{background:var(--gold);color:var(--deep)}
-.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);border:1px solid var(--gold);color:var(--gold);width:48px;height:48px;border-radius:50%;font-size:1.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.25s}
-.lightbox-nav:hover{background:var(--gold);color:var(--deep)}
-.lightbox-prev{left:1rem}
-.lightbox-next{right:1rem}
-.lightbox-counter{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);font-size:0.72rem;color:var(--muted);letter-spacing:0.1em}
+
 
 .wa-float{display:flex;position:fixed;bottom:2rem;right:2rem;z-index:300;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;border:none;font-size:1.7rem;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,0.5);transition:transform 0.25s,box-shadow 0.25s;animation:bounceIn 0.6s 2s both}
 @keyframes bounceIn{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}
@@ -270,6 +257,10 @@ footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3
 .footer-links a:hover{color:var(--gold)}
 .footer-text{font-size:0.72rem;color:var(--muted2);letter-spacing:0.08em;line-height:1.9}
 .footer-bottom{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(201,168,76,0.08);font-size:0.65rem;color:var(--muted2);letter-spacing:0.1em}
+.footer-social{display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem}
+.footer-social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(201,168,76,0.3);border-radius:50%;color:var(--gold);font-size:1.2rem;transition:all 0.25s}
+.footer-social a svg{width:1.1rem;height:1.1rem;display:block}
+.footer-social a:hover{background:var(--gold);color:var(--deep);transform:translateY(-2px);box-shadow:0 4px 12px var(--gold-glow)}
 .progress-bar{position:fixed;top:0;left:0;height:2px;z-index:1000;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));width:0%;transition:width 0.1s linear}
 
 @media(max-width:900px){
@@ -277,28 +268,27 @@ footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3
   .hamburger{display:flex}
   .about-inner{grid-template-columns:1fr;gap:2rem}
   .about-portrait{aspect-ratio:unset;height:260px}
-  .planets-strip{grid-template-columns:repeat(4,1fr)}
+  .planets-strip{grid-template-columns:repeat(5,1fr)}
+  .planet-item:nth-child(n+6){border-top:1px solid rgba(201,168,76,0.08)}
+  .rahu-ketu{border-left:none}
 }
 @media(max-width:600px){
   .hero-stats{padding:0.6rem 0}
   .stat-item{padding:0 0.6rem}
   .stat-num{font-size:0.85rem}
   .stat-label{font-size:0.5rem}
-  .offer-banner{flex-direction:column;text-align:center}
   .hero-wheel{width:95vw;height:95vw}
-  .announce-bar{font-size:0.65rem;padding:0.55rem 2.5rem 0.55rem 1rem}
   .faq-question{font-size:0.82rem}
+  .planets-strip{grid-template-columns:repeat(3,1fr)}
+  .planet-item:nth-child(n+4){border-top:1px solid rgba(201,168,76,0.08)}
+  .cta-item-val{font-size:0.9rem!important}
 }
 </style>
 </head>
 <body>
 <div class="progress-bar" id="progressBar"></div>
 
-<div class="announce-bar" id="announceBar">
-  <span>🎉 <strong>शुभारंभ ऑफर</strong> — First 10 clients get a FREE Kundali Chart Reading!</span>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfGjzAdg_mRPDnXNceJOhPbaoeuYHPFIDg9QtpJgGQSdUwnQA/viewform?usp=header" target="_blank">Book Now →</a>
-  <button class="announce-close" onclick="document.getElementById('announceBar').style.display='none'" aria-label="Close">✕</button>
-</div>
+
 
 <div class="starfield" id="starfield"></div>
 
@@ -310,7 +300,6 @@ footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3
     <a href="#services" data-i18n="nav.services">Services</a>
     <a href="#about" data-i18n="nav.about">About</a>
     <a href="#faq">FAQ</a>
-    <a href="#gallery">Gallery</a>
     <a href="#contact" data-i18n="nav.contact">Contact</a>
   </div>
   <div class="nav-right">
@@ -332,7 +321,6 @@ footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3
     <a href="#services" onclick="closeDrawer()" data-i18n="nav.services">Services</a>
     <a href="#about" onclick="closeDrawer()" data-i18n="nav.about">About</a>
     <a href="#faq" onclick="closeDrawer()">FAQ</a>
-    <a href="#gallery" onclick="closeDrawer()">Gallery</a>
     <a href="#contact" onclick="closeDrawer()" data-i18n="nav.contact">Contact</a>
   </div>
   <div class="drawer-lang">
@@ -413,12 +401,14 @@ footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3
 <section class="planets-section">
   <div class="planets-strip">
     <div class="planet-item reveal"><span class="planet-symbol">☉</span><span class="planet-name" data-i18n="planets.surya.name">Surya</span><span class="planet-domain" data-i18n="planets.surya.domain">Soul &amp; Identity</span></div>
-    <div class="planet-item reveal" style="transition-delay:.08s"><span class="planet-symbol">☽</span><span class="planet-name" data-i18n="planets.chandra.name">Chandra</span><span class="planet-domain" data-i18n="planets.chandra.domain">Mind &amp; Emotions</span></div>
-    <div class="planet-item reveal" style="transition-delay:.16s"><span class="planet-symbol">♂</span><span class="planet-name" data-i18n="planets.mangal.name">Mangal</span><span class="planet-domain" data-i18n="planets.mangal.domain">Energy &amp; Action</span></div>
-    <div class="planet-item reveal" style="transition-delay:.24s"><span class="planet-symbol">☿</span><span class="planet-name" data-i18n="planets.budha.name">Budha</span><span class="planet-domain" data-i18n="planets.budha.domain">Intellect &amp; Speech</span></div>
-    <div class="planet-item reveal" style="transition-delay:.32s"><span class="planet-symbol">♃</span><span class="planet-name" data-i18n="planets.guru.name">Guru</span><span class="planet-domain" data-i18n="planets.guru.domain">Wisdom &amp; Fortune</span></div>
-    <div class="planet-item reveal" style="transition-delay:.4s"><span class="planet-symbol">♀</span><span class="planet-name" data-i18n="planets.shukra.name">Shukra</span><span class="planet-domain" data-i18n="planets.shukra.domain">Love &amp; Beauty</span></div>
-    <div class="planet-item reveal" style="transition-delay:.48s"><span class="planet-symbol">♄</span><span class="planet-name" data-i18n="planets.shani.name">Shani</span><span class="planet-domain" data-i18n="planets.shani.domain">Karma &amp; Discipline</span></div>
+    <div class="planet-item reveal" style="transition-delay:.07s"><span class="planet-symbol">☽</span><span class="planet-name" data-i18n="planets.chandra.name">Chandra</span><span class="planet-domain" data-i18n="planets.chandra.domain">Mind &amp; Emotions</span></div>
+    <div class="planet-item reveal" style="transition-delay:.14s"><span class="planet-symbol">♂</span><span class="planet-name" data-i18n="planets.mangal.name">Mangal</span><span class="planet-domain" data-i18n="planets.mangal.domain">Energy &amp; Action</span></div>
+    <div class="planet-item reveal" style="transition-delay:.21s"><span class="planet-symbol">☿</span><span class="planet-name" data-i18n="planets.budha.name">Budha</span><span class="planet-domain" data-i18n="planets.budha.domain">Intellect &amp; Speech</span></div>
+    <div class="planet-item reveal" style="transition-delay:.28s"><span class="planet-symbol">♃</span><span class="planet-name" data-i18n="planets.guru.name">Guru</span><span class="planet-domain" data-i18n="planets.guru.domain">Wisdom &amp; Fortune</span></div>
+    <div class="planet-item reveal" style="transition-delay:.35s"><span class="planet-symbol">♀</span><span class="planet-name" data-i18n="planets.shukra.name">Shukra</span><span class="planet-domain" data-i18n="planets.shukra.domain">Love &amp; Beauty</span></div>
+    <div class="planet-item reveal" style="transition-delay:.42s"><span class="planet-symbol">♄</span><span class="planet-name" data-i18n="planets.shani.name">Shani</span><span class="planet-domain" data-i18n="planets.shani.domain">Karma &amp; Discipline</span></div>
+<div class="planet-item reveal rahu-ketu" style="transition-delay:.49s"><span class="planet-symbol">☊</span><span class="planet-name">Rahu</span><span class="planet-domain">Illusion &amp; Desire</span></div>
+    <div class="planet-item reveal rahu-ketu" style="transition-delay:.56s"><span class="planet-symbol">☋</span><span class="planet-name">Ketu</span><span class="planet-domain">Liberation &amp; Past</span></div>
   </div>
 </section>
 
@@ -430,103 +420,147 @@ footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3
   <div class="section-title reveal" data-i18n="services.title">Choose Your Reading</div>
   <div class="section-sub reveal" data-i18n="services.sub">Each reading is a deeply personal journey into your cosmic blueprint</div>
 
-  <div class="offer-banner reveal">
-    <div class="offer-icon">🎉</div>
-    <div class="offer-text">
-      <strong>"शुभारंभ ऑफर" — Launch Offer</strong>
-      <span>First 10 clients get a FREE Kundali Chart Reading. Limited spots available!</span>
-    </div>
-    <div class="offer-countdown">
-      <div class="count-unit"><span class="count-num" id="cdH">00</span><span class="count-label">Hrs</span></div>
-      <span class="count-sep">:</span>
-      <div class="count-unit"><span class="count-num" id="cdM">00</span><span class="count-label">Min</span></div>
-      <span class="count-sep">:</span>
-      <div class="count-unit"><span class="count-num" id="cdS">00</span><span class="count-label">Sec</span></div>
-    </div>
-  </div>
-
   <div class="services-grid">
+
+    <!-- Complete Kundali - Featured -->
     <div class="service-card featured-card reveal">
-      <div class="featured-badge" data-i18n="services.featuredBadge">Most Popular</div>
-      <span class="card-icon">🔮</span>
-      <div class="card-title" data-i18n="services.complete.title">Complete Kundali Chart Reading</div>
-      <div class="card-desc" data-i18n="services.complete.desc">A comprehensive deep-dive into your birth chart revealing life's path, planetary yogas, and karmic patterns.</div>
-      <ul class="card-questions">
-        <li data-i18n="services.complete.q1">Life purpose &amp; destiny path</li>
-        <li data-i18n="services.complete.q2">Career &amp; financial prospects</li>
-        <li data-i18n="services.complete.q3">Relationship compatibility</li>
-        <li data-i18n="services.complete.q4">Health &amp; wellbeing insights</li>
-        <li data-i18n="services.complete.q5">Rajyog &amp; powerful planetary combinations</li>
-      </ul>
-      <div class="card-price"><div><div class="price">₹299</div><div class="price-label" data-i18n="complete.priceLabel">Full Reading</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Complete Kundali Chart Reading')">Book Now</button></div>
+      <div class="card-img-wrap"><img src="8.jpg.jpeg" alt="Complete Kundali Reading" loading="lazy" onerror="this.parentElement.style.display='none'"/></div>
+      <div class="card-body">
+        <div class="featured-badge" data-i18n="services.featuredBadge">Most Popular</div>
+        <span class="card-icon">🔮</span>
+        <div class="card-title" data-i18n="services.complete.title">Complete Kundali Chart Reading</div>
+        <div class="card-desc" data-i18n="services.complete.desc">A comprehensive deep-dive into your birth chart revealing life's path, planetary yogas, and karmic patterns.</div>
+        <ul class="card-questions">
+          <li data-i18n="services.complete.q1">Life purpose &amp; destiny path</li>
+          <li data-i18n="services.complete.q2">Career &amp; financial prospects</li>
+          <li data-i18n="services.complete.q3">Relationship compatibility</li>
+          <li data-i18n="services.complete.q4">Health &amp; wellbeing insights</li>
+          <li data-i18n="services.complete.q5">Rajyog &amp; powerful planetary combinations</li>
+        </ul>
+        <div class="card-price"><div><div class="price">₹299</div><div class="price-label" data-i18n="complete.priceLabel">Full Reading</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Complete Kundali Chart Reading')">Book Now</button></div>
+      </div>
     </div>
+
+    <!-- Marriage -->
     <div class="service-card reveal" style="transition-delay:.1s">
-      <span class="card-planet" data-i18n="services.marriage.planet">Marriage</span><span class="card-icon">💍</span>
-      <div class="card-title" data-i18n="services.marriage.title">Marriage &amp; Kundali Matching</div>
-      <div class="card-desc" data-i18n="services.marriage.desc">Beyond gun milan — deep compatibility analysis for a lasting, joyful union.</div>
-      <ul class="card-questions">
-        <li data-i18n="services.marriage.q1">When will I get married?</li>
-        <li data-i18n="services.marriage.q2">Love marriage or arranged?</li>
-        <li data-i18n="services.marriage.q3">Will the relationship be stable?</li>
-        <li data-i18n="services.marriage.q4">Risk of conflict or separation?</li>
-      </ul>
-      <div class="card-price"><div><div class="price">₹199</div><div class="price-label" data-i18n="services.marriage.priceLabel">Per Reading</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Marriage Kundali Matching reading')">Book Now</button></div>
+      <div class="card-img-wrap"><img src="7.jpg.jpeg" alt="Marriage Kundali Matching" loading="lazy" onerror="this.parentElement.style.display='none'"/></div>
+      <div class="card-body">
+        <span class="card-planet" data-i18n="services.marriage.planet">Marriage</span>
+        <span class="card-icon">💍</span>
+        <div class="card-title" data-i18n="services.marriage.title">Marriage &amp; Kundali Matching</div>
+        <div class="card-desc" data-i18n="services.marriage.desc">Beyond gun milan — deep compatibility analysis for a lasting, joyful union.</div>
+        <ul class="card-questions">
+          <li data-i18n="services.marriage.q1">When will I get married?</li>
+          <li data-i18n="services.marriage.q2">Love marriage or arranged?</li>
+          <li data-i18n="services.marriage.q3">Will the relationship be stable?</li>
+          <li data-i18n="services.marriage.q4">Risk of conflict or separation?</li>
+        </ul>
+        <div class="card-price"><div><div class="price">₹199</div><div class="price-label" data-i18n="services.marriage.priceLabel">Per Reading</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Marriage Kundali Matching reading')">Book Now</button></div>
+      </div>
     </div>
+
+    <!-- Rajyog -->
     <div class="service-card reveal" style="transition-delay:.2s">
-      <span class="card-planet" data-i18n="services.rajyog.planet">Rajyog</span><span class="card-icon">👑</span>
-      <div class="card-title" data-i18n="services.rajyog.title">Know Your Rajyog</div>
-      <div class="card-desc" data-i18n="services.rajyog.desc">Identify the royal yogas hidden in your chart and understand when they activate for peak success.</div>
-      <ul class="card-questions">
-        <li data-i18n="services.rajyog.q1">Which Rajyogs are in your chart?</li>
-        <li data-i18n="services.rajyog.q2">When do they activate?</li>
-        <li data-i18n="services.rajyog.q3">How to maximize their power?</li>
-      </ul>
-      <div class="card-price"><div><div class="price">₹99</div><div class="price-label">Special Offer</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want to Know My Rajyog')">Book Now</button></div>
+      <div class="card-img-wrap"><img src="11.jpg.jpeg" alt="Rajyog Reading" loading="lazy" onerror="this.parentElement.style.display='none'"/></div>
+      <div class="card-body">
+        <span class="card-planet" data-i18n="services.rajyog.planet">Rajyog</span>
+        <span class="card-icon">👑</span>
+        <div class="card-title" data-i18n="services.rajyog.title">Know Your Rajyog</div>
+        <div class="card-desc" data-i18n="services.rajyog.desc">Identify the royal yogas hidden in your chart and understand when they activate for peak success.</div>
+        <ul class="card-questions">
+          <li data-i18n="services.rajyog.q1">Which Rajyogs are in your chart?</li>
+          <li data-i18n="services.rajyog.q2">When do they activate?</li>
+          <li data-i18n="services.rajyog.q3">How to maximize their power?</li>
+        </ul>
+        <div class="card-price"><div><div class="price">₹99</div><div class="price-label">Special Offer</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want to Know My Rajyog')">Book Now</button></div>
+      </div>
     </div>
+
+    <!-- Love -->
     <div class="service-card reveal" style="transition-delay:.1s">
-      <span class="card-planet" data-i18n="services.love.planet">Love</span><span class="card-icon">❤️</span>
-      <div class="card-title" data-i18n="services.love.title">Love &amp; Relationship Reading</div>
-      <div class="card-desc" data-i18n="services.love.desc">Clarity on your love life — whether your relationship has a future and what the cosmos says about your person.</div>
-      <ul class="card-questions">
-        <li data-i18n="services.love.q1">Marriage or breakup in your future?</li>
-        <li data-i18n="services.love.q2">Is it true love or timepass?</li>
-        <li data-i18n="services.love.q3">Astrological compatibility deep-dive</li>
-      </ul>
-      <div class="card-price"><div><div class="price">₹99</div><div class="price-label">On Call</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Love Relationship reading')">Book Now</button></div>
+      <div class="card-img-wrap"><img src="6.jpg.jpeg" alt="Love Relationship Reading" loading="lazy" onerror="this.parentElement.style.display='none'"/></div>
+      <div class="card-body">
+        <span class="card-planet" data-i18n="services.love.planet">Love</span>
+        <span class="card-icon">❤️</span>
+        <div class="card-title" data-i18n="services.love.title">Love &amp; Relationship Reading</div>
+        <div class="card-desc" data-i18n="services.love.desc">Clarity on your love life — whether your relationship has a future and what the cosmos says about your person.</div>
+        <ul class="card-questions">
+          <li data-i18n="services.love.q1">Marriage or breakup in your future?</li>
+          <li data-i18n="services.love.q2">Is it true love or timepass?</li>
+          <li data-i18n="services.love.q3">Astrological compatibility deep-dive</li>
+        </ul>
+        <div class="card-price"><div><div class="price">₹99</div><div class="price-label">On Call</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Love Relationship reading')">Book Now</button></div>
+      </div>
     </div>
+
+    <!-- Career -->
     <div class="service-card reveal" style="transition-delay:.2s">
-      <span class="card-planet" data-i18n="services.career.planet">Career</span><span class="card-icon">💼</span>
-      <div class="card-title" data-i18n="services.career.title">Career &amp; Education Guidance</div>
-      <div class="card-desc" data-i18n="services.career.desc">Find your true calling. Align your career choices with your planetary strengths for guaranteed success.</div>
-      <ul class="card-questions">
-        <li data-i18n="services.career.q1">Which field suits your chart?</li>
-        <li data-i18n="services.career.q2">Medical, Engineering, Arts or Commerce?</li>
-        <li data-i18n="services.career.q3">When will success come?</li>
-      </ul>
-      <div class="card-price"><div><div class="price">₹99</div><div class="price-label" data-i18n="services.career.priceLabel">Student Offer</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Career Guidance reading')">Book Now</button></div>
+      <div class="card-img-wrap"><img src="4.jpg.jpeg" alt="Career Guidance" loading="lazy" onerror="this.parentElement.style.display='none'"/></div>
+      <div class="card-body">
+        <span class="card-planet" data-i18n="services.career.planet">Career</span>
+        <span class="card-icon">💼</span>
+        <div class="card-title" data-i18n="services.career.title">Career Guidance</div>
+        <div class="card-desc" data-i18n="services.career.desc">Find your true calling. Align your professional path with your planetary strengths for guaranteed success.</div>
+        <ul class="card-questions">
+          <li data-i18n="services.career.q1">Job or business — what suits your chart?</li>
+          <li data-i18n="services.career.q2">When will career growth come?</li>
+          <li data-i18n="services.career.q3">Remedies for professional obstacles</li>
+        </ul>
+        <div class="card-price"><div><div class="price">₹99</div><div class="price-label" data-i18n="services.career.priceLabel">Career Special</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Career Guidance reading')">Book Now</button></div>
+      </div>
     </div>
+
+    <!-- Education -->
+    <div class="service-card reveal" style="transition-delay:.3s">
+      <div class="card-img-wrap"><img src="5.jpg.jpeg" alt="Education Guidance" loading="lazy" onerror="this.parentElement.style.display='none'"/></div>
+      <div class="card-body">
+        <span class="card-planet" data-i18n="services.education.planet">Education</span>
+        <span class="card-icon">📚</span>
+        <div class="card-title" data-i18n="services.education.title">Education Guidance</div>
+        <div class="card-desc" data-i18n="services.education.desc">Choose the right academic path. Let your birth chart reveal the subjects and degrees destined for you.</div>
+        <ul class="card-questions">
+          <li data-i18n="services.education.q1">Which stream suits your chart?</li>
+          <li data-i18n="services.education.q2">Medical, Engineering, Arts or Commerce?</li>
+          <li data-i18n="services.education.q3">Success in competitive exams?</li>
+        </ul>
+        <div class="card-price"><div><div class="price">₹99</div><div class="price-label" data-i18n="services.education.priceLabel">Student Offer</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Education Guidance reading')">Book Now</button></div>
+      </div>
+    </div>
+
+    <!-- Family -->
     <div class="service-card reveal" style="transition-delay:.1s">
-      <span class="card-planet" data-i18n="services.family.planet">Family</span><span class="card-icon">🏡</span>
-      <div class="card-title" data-i18n="services.family.title">Family Relationship Reading</div>
-      <div class="card-desc" data-i18n="services.family.desc">Restore harmony in your home. Understand the astrological roots of family tensions and find lasting peace.</div>
-      <ul class="card-questions">
-        <li data-i18n="services.family.q1">Why do misunderstandings arise?</li>
-        <li data-i18n="services.family.q2">How to strengthen family bonds?</li>
-        <li data-i18n="services.family.q3">Karmic patterns in relationships</li>
-      </ul>
-      <div class="card-price"><div><div class="price">₹99</div><div class="price-label" data-i18n="services.family.priceLabel">On Call</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Family Relationship reading')">Book Now</button></div>
+      <div class="card-img-wrap"><img src="9.jpg.jpeg" alt="Family Relationship Reading" loading="lazy" onerror="this.parentElement.style.display='none'"/></div>
+      <div class="card-body">
+        <span class="card-planet" data-i18n="services.family.planet">Family</span>
+        <span class="card-icon">🏡</span>
+        <div class="card-title" data-i18n="services.family.title">Family Relationship Reading</div>
+        <div class="card-desc" data-i18n="services.family.desc">Restore harmony in your home. Understand the astrological roots of family tensions and find lasting peace.</div>
+        <ul class="card-questions">
+          <li data-i18n="services.family.q1">Why do misunderstandings arise?</li>
+          <li data-i18n="services.family.q2">How to strengthen family bonds?</li>
+          <li data-i18n="services.family.q3">Karmic patterns in relationships</li>
+        </ul>
+        <div class="card-price"><div><div class="price">₹99</div><div class="price-label" data-i18n="services.family.priceLabel">On Call</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Family Relationship reading')">Book Now</button></div>
+      </div>
     </div>
+
+    <!-- Know Yourself -->
     <div class="service-card reveal" style="transition-delay:.2s">
-      <span class="card-planet" data-i18n="services.self.planet">Self</span><span class="card-icon">🌟</span>
-      <div class="card-title" data-i18n="services.self.title">Know Yourself Reading</div>
-      <div class="card-desc" data-i18n="services.self.desc">Discover your hidden strengths, life purpose, and true talents written in the stars at the moment of your birth.</div>
-      <ul class="card-questions">
-        <li data-i18n="services.self.q1">What is your true purpose?</li>
-        <li data-i18n="services.self.q2">Why do relationships not last?</li>
-        <li data-i18n="services.self.q3">Hidden talents &amp; potential</li>
-      </ul>
-      <div class="card-price"><div><div class="price">₹99</div><div class="price-label" data-i18n="services.self.priceLabel">Self Discovery</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Know Yourself reading')">Book Now</button></div>
+      <div class="card-img-wrap"><img src="5.jpg.jpeg" alt="Know Yourself Reading" loading="lazy" onerror="this.parentElement.style.display='none'"/></div>
+      <div class="card-body">
+        <span class="card-planet" data-i18n="services.self.planet">Self</span>
+        <span class="card-icon">🌟</span>
+        <div class="card-title" data-i18n="services.self.title">Know Yourself Reading</div>
+        <div class="card-desc" data-i18n="services.self.desc">Discover your hidden strengths, life purpose, and true talents written in the stars at the moment of your birth.</div>
+        <ul class="card-questions">
+          <li data-i18n="services.self.q1">What is your true purpose?</li>
+          <li data-i18n="services.self.q2">Why do relationships not last?</li>
+          <li data-i18n="services.self.q3">Hidden talents &amp; potential</li>
+        </ul>
+        <div class="card-price"><div><div class="price">₹99</div><div class="price-label" data-i18n="services.self.priceLabel">Self Discovery</div></div><button class="book-btn" onclick="window.open('https://wa.me/918080928763?text=I want Know Yourself reading')">Book Now</button></div>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -580,20 +614,20 @@ footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3
     <div class="testimonial reveal">
       <div class="big-quote">"</div>
       <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-quote" data-i18n="testimonials.1.quote">Nayan's reading about my marriage timing was spot on. I was confused for years and a single session gave me complete clarity and peace of mind.</div>
-      <div class="testimonial-footer"><div class="testimonial-avatar">PS</div><div class="testimonial-author" data-i18n="testimonials.1.author">— Priya S., Pune</div></div>
+      <div class="testimonial-quote" data-i18n="testimonials.1.quote">The Complete Kundali Chart Reading was incredibly detailed and accurate. Nayan explained every aspect of my life with such clarity. I finally understand my life path and purpose. Truly life-changing!</div>
+      <div class="testimonial-footer"><div class="testimonial-avatar">R</div><div class="testimonial-author" data-i18n="testimonials.1.author">— Radhika, Chh. Sambhajinagar</div></div>
     </div>
     <div class="testimonial reveal" style="transition-delay:.15s">
       <div class="big-quote">"</div>
       <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-quote" data-i18n="testimonials.2.quote">The career guidance reading helped me choose engineering over commerce. Best decision of my life. My chart actually showed my technical aptitude!</div>
-      <div class="testimonial-footer"><div class="testimonial-avatar">RM</div><div class="testimonial-author" data-i18n="testimonials.2.author">— Rohit M., Aurangabad</div></div>
+      <div class="testimonial-quote" data-i18n="testimonials.2.quote">I was amazed by how precise the complete chart reading was. Every detail about my relationships, career, and health was spot on. Nayan has a true gift for Vedic astrology. Best reading ever!</div>
+      <div class="testimonial-footer"><div class="testimonial-avatar">A</div><div class="testimonial-author" data-i18n="testimonials.2.author">— Anjalii, Chh. Sambhajinagar</div></div>
     </div>
     <div class="testimonial reveal" style="transition-delay:.3s">
       <div class="big-quote">"</div>
       <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-quote" data-i18n="testimonials.3.quote">I was skeptical at first, but the Rajyog reading was incredibly detailed. Nayan explained the planetary combinations in simple, modern language.</div>
-      <div class="testimonial-footer"><div class="testimonial-avatar">AK</div><div class="testimonial-author" data-i18n="testimonials.3.author">— Ananya K., Mumbai</div></div>
+      <div class="testimonial-quote" data-i18n="testimonials.3.quote">The complete kundali reading exceeded all my expectations. Nayan revealed planetary yogas in my chart that no one else had ever mentioned. The insights about my karmic patterns were remarkable.</div>
+      <div class="testimonial-footer"><div class="testimonial-avatar">S</div><div class="testimonial-author" data-i18n="testimonials.3.author">— Shubham, Chh. Sambhajinagar</div></div>
     </div>
   </div>
 </section>
@@ -633,37 +667,6 @@ footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3
   </div>
 </section>
 
-<div class="divider"><div class="divider-line"></div><div class="divider-symbol">✦</div><div class="divider-line r"></div></div>
-
-<!-- GALLERY -->
-<section class="gallery-section" id="gallery">
-  <div class="section-label reveal">Sacred Moments</div>
-  <div class="section-title reveal">Our Cosmic Gallery</div>
-  <div class="section-sub reveal">Glimpses of the journey through the stars</div>
-  <div class="gallery-grid">
-    <div class="gallery-item reveal" onclick="openLightbox(0)"><img src="1.jpg.jpeg" alt="Astrology reading 1" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-    <div class="gallery-item reveal" style="transition-delay:.05s" onclick="openLightbox(1)"><img src="2.jpg.jpeg" alt="Astrology reading 2" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-    <div class="gallery-item reveal" style="transition-delay:.1s" onclick="openLightbox(2)"><img src="3.jpg.jpeg" alt="Astrology reading 3" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-    <div class="gallery-item reveal" style="transition-delay:.15s" onclick="openLightbox(3)"><img src="4.jpg.jpeg" alt="Astrology reading 4" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-    <div class="gallery-item reveal" style="transition-delay:.2s" onclick="openLightbox(4)"><img src="5.jpg.jpeg" alt="Astrology reading 5" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-    <div class="gallery-item reveal" style="transition-delay:.25s" onclick="openLightbox(5)"><img src="6.jpg.jpeg" alt="Astrology reading 6" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-    <div class="gallery-item reveal" style="transition-delay:.3s" onclick="openLightbox(6)"><img src="7.jpg.jpeg" alt="Astrology reading 7" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-    <div class="gallery-item reveal" style="transition-delay:.35s" onclick="openLightbox(7)"><img src="8.jpg.jpeg" alt="Astrology reading 8" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-    <div class="gallery-item reveal" style="transition-delay:.4s" onclick="openLightbox(8)"><img src="9.jpg.jpeg" alt="Astrology reading 9" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-    <div class="gallery-item reveal" style="transition-delay:.45s" onclick="openLightbox(9)"><img src="10.jpg.jpeg" alt="Astrology reading 10" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-    <div class="gallery-item reveal" style="transition-delay:.5s" onclick="openLightbox(10)"><img src="11.jpg.jpeg" alt="Astrology reading 11" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-    <div class="gallery-item reveal" style="transition-delay:.55s" onclick="openLightbox(11)"><img src="12.jpg.jpeg" alt="Astrology reading 12" loading="lazy"/><div class="gallery-overlay">🔍</div></div>
-  </div>
-</section>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <button class="lightbox-nav lightbox-prev" onclick="changeLightbox(-1)">‹</button>
-  <img class="lightbox-img" id="lightboxImg" src="" alt=""/>
-  <button class="lightbox-nav lightbox-next" onclick="changeLightbox(1)">›</button>
-  <div class="lightbox-counter" id="lightboxCounter"></div>
-</div>
 
 <div class="divider"><div class="divider-line"></div><div class="divider-symbol">✦</div><div class="divider-line r"></div></div>
 
@@ -677,10 +680,17 @@ footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3
     <div class="cta-contact reveal">
       <div class="cta-item"><div class="cta-item-label" data-i18n="cta.whatsappLabel">WhatsApp / Call</div><div class="cta-item-val">+91 8080928763</div></div>
       <div class="cta-divider"></div>
-      <div class="cta-item"><div class="cta-item-label" data-i18n="cta.availabilityLabel">Availability</div><div class="cta-item-val">Mon – Sat, 10am – 8pm</div></div>
+      <div class="cta-item"><div class="cta-item-label" data-i18n="cta.availabilityLabel">Availability</div><div class="cta-item-val" style="font-size:0.95rem;line-height:1.6">Mon – Sat &nbsp;10am – 8pm<br>Sunday &nbsp;10am – 10pm</div></div>
+      <div class="cta-divider"></div>
+      <div class="cta-item"><div class="cta-item-label" data-i18n="cta.instagramLabel">Instagram</div><div class="cta-item-val"><a href="https://www.instagram.com/astro_vedic_mind?igsh=aXpmcHN6Z2FibWY0" target="_blank" style="color:var(--gold);text-decoration:none;">@astro_vedic_mind</a></div></div>
     </div>
     <div class="reveal">
       <button class="btn-primary" style="font-size:0.82rem;padding:0.95rem 2.4rem" data-i18n="cta.button" onclick="window.open('https://wa.me/918080928763?text=Namaste! I want to book an astrology consultation.')">💬 Message on WhatsApp Now</button>
+    </div>
+    <div class="qr-section reveal" style="transition-delay:.15s">
+      <div class="qr-label" data-i18n="cta.qrLabel">Scan to Connect</div>
+      <img class="qr-code-img" src="12.jpg.jpeg" alt="WhatsApp QR Code" loading="lazy" onerror="this.parentElement.style.display='none'"/>
+      <div class="qr-caption" data-i18n="cta.qrCaption">Scan this code to open WhatsApp and message us instantly</div>
     </div>
     <div class="cta-methods reveal" style="transition-delay:.2s">
       <div class="cta-method"><span style="color:var(--gold)">📞</span> On-Call Consultation</div>
@@ -698,11 +708,19 @@ footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3
     <a href="#services">Services</a>
     <a href="#about">About</a>
     <a href="#faq">FAQ</a>
-    <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
   </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/astro_vedic_mind?igsh=aXpmcHN6Z2FibWY0" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+    </a>
+  </div>
   <div class="footer-text" data-i18n="footer.bio1">Nayan (Revan) · Modern Vedic Astrology Practitioner</div>
-  <div class="footer-text" data-i18n="footer.bio2">✦  Aurangabad, Maharashtra  ✦  +91 8080928763  ✦</div>
+  <div class="footer-text" data-i18n="footer.bio2">✦  Chh. Sambhajinagar, Maharashtra  ✦  +91 8080928763  ✦</div>
   <div class="footer-bottom">© 2025 AstroVedic Mind · All Rights Reserved · Made with ✨ &amp; Cosmic Clarity</div>
 </footer>
 
@@ -746,15 +764,6 @@ var obs=new IntersectionObserver(function(entries){
 },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
 revealEls.forEach(function(el){obs.observe(el)});
 
-function updateCountdown(){
-  var now=new Date();
-  var midnight=new Date(now);midnight.setHours(24,0,0,0);
-  var diff=midnight-now;
-  document.getElementById('cdH').textContent=String(Math.floor(diff/3600000)).padStart(2,'0');
-  document.getElementById('cdM').textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
-  document.getElementById('cdS').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
-}
-updateCountdown();setInterval(updateCountdown,1000);
 
 function toggleFaq(btn){
   var item=btn.closest('.faq-item');
@@ -763,24 +772,7 @@ function toggleFaq(btn){
   if(!isOpen)item.classList.add('open');
 }
 
-var galleryImages=['1.jpg.jpeg','2.jpg.jpeg','3.jpg.jpeg','4.jpg.jpeg','5.jpg.jpeg','6.jpg.jpeg','7.jpg.jpeg','8.jpg.jpeg','9.jpg.jpeg','10.jpg.jpeg','11.jpg.jpeg','12.jpg.jpeg'];
-var currentLbIdx=0;
-function openLightbox(idx){
-  currentLbIdx=idx;
-  document.getElementById('lightboxImg').src=galleryImages[idx];
-  document.getElementById('lightboxCounter').textContent=(idx+1)+' / '+galleryImages.length;
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
-function changeLightbox(dir){currentLbIdx=(currentLbIdx+dir+galleryImages.length)%galleryImages.length;openLightbox(currentLbIdx);}
-document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox()});
-document.addEventListener('keydown',function(e){
-  if(!document.getElementById('lightbox').classList.contains('open'))return;
-  if(e.key==='Escape')closeLightbox();
-  if(e.key==='ArrowLeft')changeLightbox(-1);
-  if(e.key==='ArrowRight')changeLightbox(1);
-});
+
 </script>
 <script src="translations.js"></script>
 <script>
