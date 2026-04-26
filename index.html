@@ -239,6 +239,16 @@ html.light .icon-sun{display:none}html.light .icon-moon{display:block}
 .qr-code-img:hover{border-color:var(--card-border-hover);box-shadow:0 12px 40px rgba(201,168,76,0.15)}
 .qr-caption{font-size:0.72rem;color:var(--muted);text-align:center;line-height:1.5;max-width:220px}
 html.light .qr-code-img{box-shadow:0 8px 30px rgba(0,0,0,0.1)}
+/* Image Lightbox */
+.img-lightbox{position:fixed;inset:0;z-index:400;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.35s var(--ease)}
+.img-lightbox.active{opacity:1;pointer-events:auto}
+.img-lightbox-overlay{position:absolute;inset:0;background:rgba(8,4,16,0.92);backdrop-filter:blur(12px);cursor:pointer}
+html.light .img-lightbox-overlay{background:rgba(250,247,242,0.92)}
+.img-lightbox-img{position:relative;z-index:2;max-width:90vw;max-height:85vh;object-fit:contain;border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:0 24px 80px rgba(0,0,0,0.5);transform:scale(0.92);transition:transform 0.4s var(--ease)}
+.img-lightbox.active .img-lightbox-img{transform:scale(1)}
+.img-lightbox-close{position:absolute;top:1.5rem;right:1.5rem;z-index:3;background:rgba(201,168,76,0.15);border:1px solid var(--gold);color:var(--gold);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;transition:all 0.25s}
+.img-lightbox-close:hover{background:var(--gold);color:var(--deep);transform:rotate(90deg)}
+.card-img-wrap img{cursor:pointer}
 @media(max-width:600px){
   .qr-code-img{width:150px;height:150px}
   .qr-section{margin-top:2rem}
@@ -726,6 +736,13 @@ footer{background:var(--mid);border-top:1px solid rgba(201,168,76,0.1);padding:3
 
 <button class="wa-float" onclick="window.open('https://wa.me/918080928763?text=Namaste! I want to book an astrology consultation.')" aria-label="WhatsApp">💬</button>
 
+<!-- Image Lightbox Modal -->
+<div class="img-lightbox" id="imgLightbox" onclick="closeLightbox(event)">
+  <div class="img-lightbox-overlay"></div>
+  <button class="img-lightbox-close" onclick="closeLightboxBtn(event)" aria-label="Close">×</button>
+  <img class="img-lightbox-img" id="imgLightboxImg" src="" alt="Expanded view"/>
+</div>
+
 <script>
 (function(){
   var sf=document.getElementById('starfield');
@@ -772,6 +789,25 @@ function toggleFaq(btn){
   if(!isOpen)item.classList.add('open');
 }
 
+/* Image Lightbox */
+var lightbox=document.getElementById('imgLightbox');
+var lightboxImg=document.getElementById('imgLightboxImg');
+document.querySelectorAll('.card-img-wrap img').forEach(function(img){
+  img.addEventListener('click',function(){
+    lightboxImg.src=this.src;
+    lightboxImg.alt=this.alt;
+    lightbox.classList.add('active');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeLightboxBtn(e){e.stopPropagation();closeLightbox()}
+function closeLightbox(e){
+  if(!e||e.target.classList.contains('img-lightbox-overlay')||e.target===lightbox){
+    lightbox.classList.remove('active');
+    document.body.style.overflow='';
+  }
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
 
 </script>
 <script src="translations.js"></script>
